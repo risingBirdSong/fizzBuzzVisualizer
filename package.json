@@ -9,6 +9,9 @@
     "@types/react": "^16.9.38",
     "parcel": "^2.0.0-beta.1"
   },
+  "browserslist": [
+    "last 1 Chrome version"
+  ],
   "dependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1"

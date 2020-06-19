@@ -1,8 +1,8 @@
 .grid-container {
   display: grid;
-  grid-template-columns: [col] 100px [col] 100px [col] 100px [col] 100px ;
-  grid-template-rows: [row] auto [row] auto [row] ;
-  background-color: #2196F3;
+  grid-template-columns: [col] 100px [col] 100px [col] 100px [col] 100px;
+  grid-template-rows: [row] auto [row] auto [row];
+  background-color: #2196f3;
   padding: 10px;
 }
 .grid-item {
@@ -12,5 +12,14 @@
   font-size: 30px;
   text-align: center;
 }
+
+.grid-item-current {
+  background-color: rgba(50, 80, 20, 0.8);
+  border: 1px solid rgba(200, 180, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
 
 /*# sourceMappingURL=/style.e308ff8e.css.map */
