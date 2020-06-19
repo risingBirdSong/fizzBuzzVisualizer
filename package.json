@@ -1,0 +1,16 @@
+{
+  "name": "fizzbuzz",
+  "version": "1.0.0",
+  "description": "implement fizz buzz with a visual componenet",
+  "main": "index.ts",
+  "author": "peter",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^16.9.38",
+    "parcel": "^2.0.0-beta.1"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
