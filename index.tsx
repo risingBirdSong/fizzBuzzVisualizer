@@ -6,12 +6,12 @@ import ReactDOM from "react-dom";
 
 const App = ()  => {
 
-  const numbers = [...Array(10).keys()];
+  const numbers = [...Array(20).keys()];
 
   return (
-    <div>
+    <div className="grid-container">
       {numbers.map((num) => {
-        return <p key={num}>{num}</p>;
+        return <div className="grid-item">{num}</div>  
       })}
     </div>
   )

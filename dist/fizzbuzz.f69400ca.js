@@ -28323,11 +28323,13 @@ var react_dom_1 = __importDefault(require("react-dom")); // const React = requir
 
 
 var App = function App() {
-  var numbers = _toConsumableArray(Array(10).keys());
+  var numbers = _toConsumableArray(Array(20).keys());
 
-  return React.createElement("div", null, numbers.map(function (num) {
-    return React.createElement("p", {
-      key: num
+  return React.createElement("div", {
+    className: "grid-container"
+  }, numbers.map(function (num) {
+    return React.createElement("div", {
+      className: "grid-item"
     }, num);
   }));
 };
@@ -28361,7 +28363,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57491" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63768" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
