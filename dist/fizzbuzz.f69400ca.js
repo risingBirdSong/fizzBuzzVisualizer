@@ -28323,7 +28323,7 @@ var react_dom_1 = __importDefault(require("react-dom")); // const React = requir
 
 
 var App = function App() {
-  var numbers = _toConsumableArray(Array(20).keys());
+  var numbers = _toConsumableArray(Array(30).keys());
 
   return React.createElement("div", {
     className: "grid-container"

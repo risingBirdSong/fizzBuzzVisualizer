@@ -6,7 +6,7 @@ import ReactDOM from "react-dom";
 
 const App = ()  => {
 
-  const numbers = [...Array(20).keys()];
+  const numbers = [...Array(30).keys()];
 
   return (
     <div className="grid-container">
