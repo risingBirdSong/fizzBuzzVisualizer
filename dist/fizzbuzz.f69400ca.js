@@ -28332,7 +28332,72 @@ const delayer = ms => {
 
 
 exports.default = delayer;
-},{}],"index.tsx":[function(require,module,exports) {
+},{}],"components/fizzbuzzing.tsx":[function(require,module,exports) {
+"use strict";
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+  result["default"] = mod;
+  return result;
+};
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+const React = __importStar(require("react"));
+
+const fizzBuzzing = (num, current) => {
+  let value;
+  let backgroundColor;
+  let color;
+
+  if (num === current) {
+    if (num === 0) {
+      value = 0;
+      backgroundColor = "burlywood";
+      color = "black";
+    } else if (num % 15 === 0) {
+      value = "fizz buzz";
+      backgroundColor = "brown";
+      color = "white";
+    } else if (num % 3 === 0) {
+      value = "fizz";
+      backgroundColor = "purple";
+      color = "antiquewhite";
+    } else if (num % 5 === 0) {
+      value = "buzz";
+      backgroundColor = "chocolate";
+      color = "cornsilk";
+    } else {
+      value = num;
+      backgroundColor = "burlywood";
+      color = "black";
+    }
+
+    return React.createElement("div", {
+      className: "grid-item-current",
+      style: {
+        backgroundColor: backgroundColor
+      }
+    }, React.createElement("div", {
+      style: {
+        color: color
+      }
+    }, value));
+  } else {
+    //insert function here
+    return React.createElement("div", {
+      key: num,
+      className: "grid-item"
+    }, num);
+  }
+};
+
+exports.default = fizzBuzzing;
+},{"react":"node_modules/react/index.js"}],"index.tsx":[function(require,module,exports) {
 "use strict";
 
 var __awaiter = this && this.__awaiter || function (thisArg, _arguments, P, generator) {
@@ -28391,7 +28456,9 @@ const react_dom_1 = __importDefault(require("react-dom"));
 
 const buttons_1 = __importDefault(require("./components/buttons"));
 
-const helpers_1 = __importDefault(require("./helpers")); // const React = require("react");
+const helpers_1 = __importDefault(require("./helpers"));
+
+const fizzbuzzing_1 = __importDefault(require("./components/fizzbuzzing")); // const React = require("react");
 // const ReactDOM = require("react-dom");
 
 
@@ -28412,66 +28479,19 @@ const App = () => {
     });
   }
 
-  const fizzBuzzing = (num, current) => {
-    let value;
-    let backgroundColor;
-    let color;
-
-    if (num === current) {
-      if (num === 0) {
-        value = 0;
-        backgroundColor = "burlywood";
-        color = "black";
-      } else if (num % 15 === 0) {
-        value = "fizz buzz";
-        backgroundColor = "brown";
-        color = "white";
-      } else if (num % 3 === 0) {
-        value = "fizz";
-        backgroundColor = "purple";
-        color = "antiquewhite";
-      } else if (num % 5 === 0) {
-        value = "buzz";
-        backgroundColor = "chocolate";
-        color = "cornsilk";
-      } else {
-        value = num;
-        backgroundColor = "burlywood";
-        color = "black";
-      }
-
-      return React.createElement("div", {
-        className: "grid-item-current",
-        style: {
-          backgroundColor: backgroundColor
-        }
-      }, React.createElement("div", {
-        style: {
-          color: color
-        }
-      }, value));
-    } else {
-      //insert function here
-      return React.createElement("div", {
-        key: num,
-        className: "grid-item"
-      }, num);
-    }
-  };
-
   return React.createElement("div", null, React.createElement(buttons_1.default, {
     proppedFizzbuzz: fizzbuzz
   }), React.createElement("div", {
     className: "grid-container"
   }, fizzArray.map(fizz => {
     {
-      return fizzBuzzing(fizz, current);
+      return fizzbuzzing_1.default(fizz, current);
     }
   })));
 };
 
 react_dom_1.default.render(React.createElement(App, null), document.getElementById("root"));
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/buttons":"components/buttons.tsx","./helpers":"helpers.ts"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/buttons":"components/buttons.tsx","./helpers":"helpers.ts","./components/fizzbuzzing":"components/fizzbuzzing.tsx"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -28499,7 +28519,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52322" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52475" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
