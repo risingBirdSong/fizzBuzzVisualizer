@@ -2,7 +2,7 @@ import * as React from "react";
 import ReactDOM from "react-dom";
 import Buttons from "./components/buttons";
 import delayer from "./helpers";
-import fizzBuzzing from "./components/fizzbuzzing";
+import fizzBuzzHandler from "./components/fizzbuzzHandler";
 
 // const React = require("react");
 // const ReactDOM = require("react-dom");
@@ -28,7 +28,7 @@ const App = () => {
       <div className="grid-container">
         {fizzArray.map((fizz) => {
           {
-            return fizzBuzzing(fizz, current);
+            return fizzBuzzHandler(fizz, current);
           }
         })}
       </div>

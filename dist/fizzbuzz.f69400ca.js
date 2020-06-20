@@ -28332,7 +28332,7 @@ const delayer = ms => {
 
 
 exports.default = delayer;
-},{}],"components/fizzbuzzing.tsx":[function(require,module,exports) {
+},{}],"components/fizzBuzzLogic.tsx":[function(require,module,exports) {
 "use strict";
 
 var __importStar = this && this.__importStar || function (mod) {
@@ -28349,46 +28349,82 @@ Object.defineProperty(exports, "__esModule", {
 
 const React = __importStar(require("react"));
 
-const fizzBuzzing = (num, current) => {
+const FizzBuzzLogic = (num, current) => {
+  let value = num;
+  let backgroundColor = "beige";
+  let color = "white";
+
+  if (num === 0) {
+    value = 0;
+    backgroundColor = "burlywood";
+    color = "black";
+  } else if (num % 15 === 0) {
+    value = "fizz buzz";
+    backgroundColor = "brown";
+    color = "white";
+  } else if (num % 3 === 0) {
+    value = "fizz";
+    backgroundColor = "purple";
+    color = "antiquewhite";
+  } else if (num % 5 === 0) {
+    value = "buzz";
+    backgroundColor = "chocolate";
+    color = "cornsilk";
+  } else {
+    value = num;
+    backgroundColor = "burlywood";
+    color = "black";
+  }
+
+  return React.createElement("div", {
+    key: num,
+    className: "grid-item-current",
+    style: {
+      backgroundColor: backgroundColor
+    }
+  }, React.createElement("div", {
+    style: {
+      color: color
+    }
+  }, value));
+};
+
+exports.default = FizzBuzzLogic;
+},{"react":"node_modules/react/index.js"}],"components/fizzbuzzHandler.tsx":[function(require,module,exports) {
+"use strict";
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+  result["default"] = mod;
+  return result;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+const React = __importStar(require("react"));
+
+const fizzBuzzLogic_1 = __importDefault(require("./fizzBuzzLogic"));
+
+const fizzBuzzHandler = (num, current) => {
   let value;
   let backgroundColor;
   let color;
 
   if (num === current) {
-    if (num === 0) {
-      value = 0;
-      backgroundColor = "burlywood";
-      color = "black";
-    } else if (num % 15 === 0) {
-      value = "fizz buzz";
-      backgroundColor = "brown";
-      color = "white";
-    } else if (num % 3 === 0) {
-      value = "fizz";
-      backgroundColor = "purple";
-      color = "antiquewhite";
-    } else if (num % 5 === 0) {
-      value = "buzz";
-      backgroundColor = "chocolate";
-      color = "cornsilk";
-    } else {
-      value = num;
-      backgroundColor = "burlywood";
-      color = "black";
-    }
-
-    return React.createElement("div", {
-      className: "grid-item-current",
-      style: {
-        backgroundColor: backgroundColor
-      }
-    }, React.createElement("div", {
-      style: {
-        color: color
-      }
-    }, value));
+    return fizzBuzzLogic_1.default(num, current);
+  } else if (num < current) {
+    return fizzBuzzLogic_1.default(num, current);
   } else {
-    //insert function here
     return React.createElement("div", {
       key: num,
       className: "grid-item"
@@ -28396,8 +28432,8 @@ const fizzBuzzing = (num, current) => {
   }
 };
 
-exports.default = fizzBuzzing;
-},{"react":"node_modules/react/index.js"}],"index.tsx":[function(require,module,exports) {
+exports.default = fizzBuzzHandler;
+},{"react":"node_modules/react/index.js","./fizzBuzzLogic":"components/fizzBuzzLogic.tsx"}],"index.tsx":[function(require,module,exports) {
 "use strict";
 
 var __awaiter = this && this.__awaiter || function (thisArg, _arguments, P, generator) {
@@ -28458,7 +28494,7 @@ const buttons_1 = __importDefault(require("./components/buttons"));
 
 const helpers_1 = __importDefault(require("./helpers"));
 
-const fizzbuzzing_1 = __importDefault(require("./components/fizzbuzzing")); // const React = require("react");
+const fizzbuzzHandler_1 = __importDefault(require("./components/fizzbuzzHandler")); // const React = require("react");
 // const ReactDOM = require("react-dom");
 
 
@@ -28485,13 +28521,13 @@ const App = () => {
     className: "grid-container"
   }, fizzArray.map(fizz => {
     {
-      return fizzbuzzing_1.default(fizz, current);
+      return fizzbuzzHandler_1.default(fizz, current);
     }
   })));
 };
 
 react_dom_1.default.render(React.createElement(App, null), document.getElementById("root"));
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/buttons":"components/buttons.tsx","./helpers":"helpers.ts","./components/fizzbuzzing":"components/fizzbuzzing.tsx"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/buttons":"components/buttons.tsx","./helpers":"helpers.ts","./components/fizzbuzzHandler":"components/fizzbuzzHandler.tsx"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
