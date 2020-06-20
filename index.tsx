@@ -2,6 +2,7 @@ import * as React from "react";
 import ReactDOM from "react-dom";
 import Buttons from "./components/buttons";
 import delayer from "./helpers";
+import fizzBuzzHandler from "./components/fizzbuzzHandler";
 
 // const React = require("react");
 // const ReactDOM = require("react-dom");
@@ -21,57 +22,13 @@ const App = () => {
     }
   }
 
-  const fizzBuzzing = (num: number, current: number): JSX.Element => {
-    let value: string | number;
-    let backgroundColor: string;
-    let color: string;
-    if (num === current) {
-      if (num === 0) {
-        value = 0;
-        backgroundColor = "burlywood";
-        color = "black";
-      } else if (num % 15 === 0) {
-        value = "fizz buzz";
-        backgroundColor = "brown";
-        color = "white";
-      } else if (num % 3 === 0) {
-        value = "fizz";
-        backgroundColor = "purple";
-        color = "antiquewhite";
-      } else if (num % 5 === 0) {
-        value = "buzz";
-        backgroundColor = "chocolate";
-        color = "cornsilk";
-      } else {
-        value = num;
-        backgroundColor = "burlywood";
-        color = "black";
-      }
-      return (
-        <div
-          className="grid-item-current"
-          style={{ backgroundColor: backgroundColor }}
-        >
-          <div style={{ color: color }}>{value}</div>
-        </div>
-      );
-    } else {
-      //insert function here
-      return (
-        <div key={num} className="grid-item">
-          {num}
-        </div>
-      );
-    }
-  };
-
   return (
     <div>
       <Buttons proppedFizzbuzz={fizzbuzz} />
       <div className="grid-container">
         {fizzArray.map((fizz) => {
           {
-            return fizzBuzzing(fizz, current);
+            return fizzBuzzHandler(fizz, current);
           }
         })}
       </div>
