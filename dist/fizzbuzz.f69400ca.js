@@ -28304,8 +28304,14 @@ const React = __importStar(require("react"));
 
 const Buttons = props => {
   return React.createElement("div", null, React.createElement("button", {
-    onClick: props.proppedFizzbuzz
-  }, "fizzbuzz!"), React.createElement("button", null, "slow"), React.createElement("button", null, "medium"), React.createElement("button", null, "fast"), React.createElement("button", null, "step through"));
+    onClick: () => {
+      props.proppedFizzbuzz(800);
+    }
+  }, "fizzbuzz slowly"), React.createElement("button", {
+    onClick: () => {
+      props.proppedFizzbuzz(300);
+    }
+  }, "fast"), React.createElement("button", null, "step through"));
 };
 
 exports.default = Buttons;
@@ -28322,7 +28328,8 @@ const delayer = ms => {
       resolve();
     }, ms);
   });
-};
+}; // export { delayer };
+
 
 exports.default = delayer;
 },{}],"index.tsx":[function(require,module,exports) {
@@ -28396,16 +28403,16 @@ const App = () => {
   //apparently parcel is calling babel for using async await but it's not needed because typescript provides its own
   // the fix was adding to package.json the config for browserslist -> last 1 Chrome version
 
-  function fizzbuzz() {
+  function fizzbuzz(delayAmount) {
     return __awaiter(this, void 0, void 0, function* () {
       for (let num of fizzArray) {
-        yield helpers_1.default(200);
+        yield helpers_1.default(delayAmount);
         setCurrent(num);
       }
     });
   }
 
-  const fizzBuzzing = num => {
+  const fizzBuzzing = (num, current) => {
     let value;
     let backgroundColor;
     let color;
@@ -28443,10 +28450,13 @@ const App = () => {
           color: color
         }
       }, value));
-    } else return React.createElement("div", {
-      key: num,
-      className: "grid-item"
-    }, num);
+    } else {
+      //insert function here
+      return React.createElement("div", {
+        key: num,
+        className: "grid-item"
+      }, num);
+    }
   };
 
   return React.createElement("div", null, React.createElement(buttons_1.default, {
@@ -28455,7 +28465,7 @@ const App = () => {
     className: "grid-container"
   }, fizzArray.map(fizz => {
     {
-      return fizzBuzzing(fizz);
+      return fizzBuzzing(fizz, current);
     }
   })));
 };
@@ -28489,7 +28499,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64266" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51940" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

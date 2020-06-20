@@ -14,14 +14,14 @@ const App = () => {
   //https://github.com/parcel-bundler/parcel/issues/954
   //apparently parcel is calling babel for using async await but it's not needed because typescript provides its own
   // the fix was adding to package.json the config for browserslist -> last 1 Chrome version
-  async function fizzbuzz() {
+  async function fizzbuzz(delayAmount: number) {
     for (let num of fizzArray) {
-      await delayer(200);
+      await delayer(delayAmount);
       setCurrent(num);
     }
   }
 
-  const fizzBuzzing = (num: number): JSX.Element => {
+  const fizzBuzzing = (num: number, current: number): JSX.Element => {
     let value: string | number;
     let backgroundColor: string;
     let color: string;
@@ -55,12 +55,14 @@ const App = () => {
           <div style={{ color: color }}>{value}</div>
         </div>
       );
-    } else
+    } else {
+      //insert function here
       return (
         <div key={num} className="grid-item">
           {num}
         </div>
       );
+    }
   };
 
   return (
@@ -69,7 +71,7 @@ const App = () => {
       <div className="grid-container">
         {fizzArray.map((fizz) => {
           {
-            return fizzBuzzing(fizz);
+            return fizzBuzzing(fizz, current);
           }
         })}
       </div>
