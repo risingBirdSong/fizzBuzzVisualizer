@@ -3,7 +3,8 @@ const delayer = (ms: number) => {
     setTimeout(() => {
       resolve();
     }, ms);
-  })
-}
+  });
+};
 
+// export { delayer };
 export default delayer;

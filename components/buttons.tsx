@@ -1,16 +1,26 @@
 import * as React from "react";
 
 interface fizzBuzzHandler {
-  proppedFizzbuzz: () => void;
+  proppedFizzbuzz: (num: number) => void;
 }
 
 const Buttons = (props: fizzBuzzHandler): JSX.Element => {
   return (
     <div>
-      <button onClick={props.proppedFizzbuzz}>fizzbuzz!</button>
-      <button>slow</button>
-      <button>medium</button>
-      <button>fast</button>
+      <button
+        onClick={() => {
+          props.proppedFizzbuzz(800);
+        }}
+      >
+        fizzbuzz slowly
+      </button>
+      <button
+        onClick={() => {
+          props.proppedFizzbuzz(300);
+        }}
+      >
+        fast
+      </button>
       <button>step through</button>
     </div>
   );
