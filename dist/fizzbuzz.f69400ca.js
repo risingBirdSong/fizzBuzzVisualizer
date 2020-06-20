@@ -28285,23 +28285,85 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"index.tsx":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"components/buttons.tsx":[function(require,module,exports) {
 "use strict";
-
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
-
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
 var __importStar = this && this.__importStar || function (mod) {
   if (mod && mod.__esModule) return mod;
   var result = {};
-  if (mod != null) for (var k in mod) {
-    if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+  if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+  result["default"] = mod;
+  return result;
+};
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+const React = __importStar(require("react"));
+
+const Buttons = props => {
+  return React.createElement("div", null, React.createElement("button", {
+    onClick: props.proppedFizzbuzz
+  }, "fizzbuzz!"), React.createElement("button", null, "slow"), React.createElement("button", null, "medium"), React.createElement("button", null, "fast"), React.createElement("button", null, "step through"));
+};
+
+exports.default = Buttons;
+},{"react":"node_modules/react/index.js"}],"helpers.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+const delayer = ms => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve();
+    }, ms);
+  });
+};
+
+exports.default = delayer;
+},{}],"index.tsx":[function(require,module,exports) {
+"use strict";
+
+var __awaiter = this && this.__awaiter || function (thisArg, _arguments, P, generator) {
+  function adopt(value) {
+    return value instanceof P ? value : new P(function (resolve) {
+      resolve(value);
+    });
   }
+
+  return new (P || (P = Promise))(function (resolve, reject) {
+    function fulfilled(value) {
+      try {
+        step(generator.next(value));
+      } catch (e) {
+        reject(e);
+      }
+    }
+
+    function rejected(value) {
+      try {
+        step(generator["throw"](value));
+      } catch (e) {
+        reject(e);
+      }
+    }
+
+    function step(result) {
+      result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
+    }
+
+    step((generator = generator.apply(thisArg, _arguments || [])).next());
+  });
+};
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
   result["default"] = mod;
   return result;
 };
@@ -28316,24 +28378,49 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var React = __importStar(require("react"));
+const React = __importStar(require("react"));
 
-var react_dom_1 = __importDefault(require("react-dom")); // const React = require("react");
+const react_dom_1 = __importDefault(require("react-dom"));
+
+const buttons_1 = __importDefault(require("./components/buttons"));
+
+const helpers_1 = __importDefault(require("./helpers")); // const React = require("react");
 // const ReactDOM = require("react-dom");
 
 
-var App = function App() {
-  var numbers = _toConsumableArray(Array(10).keys());
+const App = () => {
+  const initialNumbers = [...Array(30).keys()];
+  const [current, setCurrent] = React.useState(0);
+  const [fizzArray, setNumbers] = React.useState(initialNumbers); //https://github.com/parcel-bundler/parcel/issues/954
+  //apparently parcel is calling babel for using async await but it's not needed because typescript provides its own
+  // the fix was adding to package.json the config for browserslist -> last 1 Chrome version
 
-  return React.createElement("div", null, numbers.map(function (num) {
-    return React.createElement("p", {
-      key: num
-    }, num);
-  }));
+  function fizzbuzz() {
+    return __awaiter(this, void 0, void 0, function* () {
+      for (let num of fizzArray) {
+        yield helpers_1.default(500);
+        setCurrent(num);
+      }
+    });
+  }
+
+  return React.createElement("div", null, React.createElement(buttons_1.default, {
+    proppedFizzbuzz: fizzbuzz
+  }), React.createElement("div", {
+    className: "grid-container"
+  }, fizzArray.map(fizz => {
+    return fizz === current ? React.createElement("div", {
+      key: fizz,
+      className: "grid-item-current"
+    }, fizz) : React.createElement("div", {
+      key: fizz,
+      className: "grid-item"
+    }, fizz);
+  })));
 };
 
-react_dom_1.default.render(React.createElement(App, null), document.getElementById('root'));
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+react_dom_1.default.render(React.createElement(App, null), document.getElementById("root"));
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/buttons":"components/buttons.tsx","./helpers":"helpers.ts"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
