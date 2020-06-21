@@ -16,4 +16,4 @@ CSS Grid is awesome! Great to to finally play with it.
 
 ## notes
 
-currently soliciting suggestions, questions, ideas, and yes of course pull requests!
+currently soliciting suggestions, questions, ideas, and yes of course pull requests! :)
