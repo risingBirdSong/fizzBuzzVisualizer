@@ -1,8 +1,9 @@
 import * as React from "react";
-const FizzBuzzLogic = (num: number, current: number) => {
+const FizzBuzzLogic = (num: number, current?: boolean) => {
   let value: string | number = num;
   let backgroundColor: string = "beige";
   let color: string = "white";
+  let borderColor;
   if (num === 0) {
     value = 0;
     backgroundColor = "burlywood";
@@ -24,13 +25,23 @@ const FizzBuzzLogic = (num: number, current: number) => {
     backgroundColor = "burlywood";
     color = "black";
   }
+  if (current && typeof value !== "number") {
+    color = "red";
+    backgroundColor = "beige";
+  }
   return (
     <div
       key={num}
       className="grid-item-current"
       style={{ backgroundColor: backgroundColor }}
     >
-      <div style={{ color: color }}>{value}</div>
+      <div
+        style={{
+          color: color,
+        }}
+      >
+        {value}
+      </div>
     </div>
   );
 };

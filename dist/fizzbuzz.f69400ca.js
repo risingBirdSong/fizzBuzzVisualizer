@@ -28303,15 +28303,37 @@ Object.defineProperty(exports, "__esModule", {
 const React = __importStar(require("react"));
 
 const Buttons = props => {
-  return React.createElement("div", null, React.createElement("button", {
+  return React.createElement("div", {
+    className: "buttons-container"
+  }, React.createElement("button", {
     onClick: () => {
-      props.proppedFizzbuzz(800);
+      if (!props.activeprop) {
+        props.proppedFizzbuzz(600);
+        props.activeSetter(true);
+      }
     }
   }, "fizzbuzz slowly"), React.createElement("button", {
     onClick: () => {
-      props.proppedFizzbuzz(300);
+      console.log("active prop", props.activeprop);
+
+      if (!props.activeprop) {
+        props.proppedFizzbuzz(30);
+        props.activeSetter(true);
+      }
     }
-  }, "fast"), React.createElement("button", null, "step through"));
+  }, "fast"), React.createElement("button", {
+    onClick: () => {
+      if (!props.activeprop) {
+        props.next();
+      }
+    }
+  }, "step through"), React.createElement("button", {
+    onClick: () => {
+      if (!props.activeprop) {
+        props.clear();
+      }
+    }
+  }, "clear"));
 };
 
 exports.default = Buttons;
@@ -28353,6 +28375,7 @@ const FizzBuzzLogic = (num, current) => {
   let value = num;
   let backgroundColor = "beige";
   let color = "white";
+  let borderColor;
 
   if (num === 0) {
     value = 0;
@@ -28374,6 +28397,11 @@ const FizzBuzzLogic = (num, current) => {
     value = num;
     backgroundColor = "burlywood";
     color = "black";
+  }
+
+  if (current && typeof value !== "number") {
+    color = "red";
+    backgroundColor = "beige";
   }
 
   return React.createElement("div", {
@@ -28421,9 +28449,9 @@ const fizzBuzzHandler = (num, current) => {
   let color;
 
   if (num === current) {
-    return fizzBuzzLogic_1.default(num, current);
+    return fizzBuzzLogic_1.default(num, true);
   } else if (num < current) {
-    return fizzBuzzLogic_1.default(num, current);
+    return fizzBuzzLogic_1.default(num);
   } else {
     return React.createElement("div", {
       key: num,
@@ -28502,7 +28530,9 @@ const App = () => {
   let length = 100;
   const initialNumbers = [...Array(length).keys()];
   const [current, setCurrent] = React.useState(-1);
-  const [fizzArray, setNumbers] = React.useState(initialNumbers); //https://github.com/parcel-bundler/parcel/issues/954
+  const [fizzArray, setNumbers] = React.useState(initialNumbers);
+  const [step, nextStep] = React.useState(-1);
+  let [active, setActive] = React.useState(false); //https://github.com/parcel-bundler/parcel/issues/954
   //apparently parcel is calling babel for using async await but it's not needed because typescript provides its own
   // the fix was adding to package.json the config for browserslist -> last 1 Chrome version
 
@@ -28512,11 +28542,28 @@ const App = () => {
         yield helpers_1.default(delayAmount);
         setCurrent(num);
       }
+
+      setActive(false);
     });
   }
 
+  const restart = () => {
+    setCurrent(-1);
+    setNumbers([...Array(length).keys()]);
+  };
+
+  const stepThrough = () => {
+    let next = step + 1;
+    nextStep(next);
+    setCurrent(next);
+  };
+
   return React.createElement("div", null, React.createElement(buttons_1.default, {
-    proppedFizzbuzz: fizzbuzz
+    proppedFizzbuzz: fizzbuzz,
+    activeprop: active,
+    activeSetter: setActive,
+    clear: restart,
+    next: stepThrough
   }), React.createElement("div", {
     className: "grid-container"
   }, fizzArray.map(fizz => {
@@ -28555,7 +28602,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52475" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61392" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

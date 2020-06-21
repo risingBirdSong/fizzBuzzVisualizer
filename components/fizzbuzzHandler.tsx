@@ -5,9 +5,9 @@ const fizzBuzzHandler = (num: number, current: number): JSX.Element => {
   let backgroundColor: string;
   let color: string;
   if (num === current) {
-    return FizzBuzzLogic(num, current);
+    return FizzBuzzLogic(num, true);
   } else if (num < current) {
-    return FizzBuzzLogic(num, current);
+    return FizzBuzzLogic(num);
   } else {
     return (
       <div key={num} className="grid-item">
