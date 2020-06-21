@@ -27,7 +27,7 @@ const FizzBuzzLogic = (num: number, current?: boolean) => {
   }
   if (current && typeof value !== "number") {
     color = "red";
-    borderColor = "4px solid orange";
+    backgroundColor = "beige";
   }
   return (
     <div
@@ -35,7 +35,13 @@ const FizzBuzzLogic = (num: number, current?: boolean) => {
       className="grid-item-current"
       style={{ backgroundColor: backgroundColor }}
     >
-      <div style={{ color: color, border: borderColor }}>{value}</div>
+      <div
+        style={{
+          color: color,
+        }}
+      >
+        {value}
+      </div>
     </div>
   );
 };

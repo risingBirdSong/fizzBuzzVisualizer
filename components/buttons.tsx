@@ -5,14 +5,15 @@ interface fizzBuzzHandler {
   activeprop: boolean;
   activeSetter: React.Dispatch<React.SetStateAction<boolean>>;
   clear: () => void;
+  next: () => void;
 }
 
 const Buttons = (props: fizzBuzzHandler): JSX.Element => {
   return (
-    <div>
+    <div className="buttons-container">
       <button
         onClick={() => {
-          if (props.activeprop === false) {
+          if (!props.activeprop) {
             props.proppedFizzbuzz(600);
             props.activeSetter(true);
           }
@@ -23,7 +24,7 @@ const Buttons = (props: fizzBuzzHandler): JSX.Element => {
       <button
         onClick={() => {
           console.log("active prop", props.activeprop);
-          if (props.activeprop === false) {
+          if (!props.activeprop) {
             props.proppedFizzbuzz(30);
             props.activeSetter(true);
           }
@@ -31,7 +32,15 @@ const Buttons = (props: fizzBuzzHandler): JSX.Element => {
       >
         fast
       </button>
-      <button>step through</button>
+      <button
+        onClick={() => {
+          if (!props.activeprop) {
+            props.next();
+          }
+        }}
+      >
+        step through
+      </button>
       <button
         onClick={() => {
           if (!props.activeprop) {

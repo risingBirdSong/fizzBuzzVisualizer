@@ -28303,9 +28303,11 @@ Object.defineProperty(exports, "__esModule", {
 const React = __importStar(require("react"));
 
 const Buttons = props => {
-  return React.createElement("div", null, React.createElement("button", {
+  return React.createElement("div", {
+    className: "buttons-container"
+  }, React.createElement("button", {
     onClick: () => {
-      if (props.activeprop === false) {
+      if (!props.activeprop) {
         props.proppedFizzbuzz(600);
         props.activeSetter(true);
       }
@@ -28314,12 +28316,18 @@ const Buttons = props => {
     onClick: () => {
       console.log("active prop", props.activeprop);
 
-      if (props.activeprop === false) {
+      if (!props.activeprop) {
         props.proppedFizzbuzz(30);
         props.activeSetter(true);
       }
     }
-  }, "fast"), React.createElement("button", null, "step through"), React.createElement("button", {
+  }, "fast"), React.createElement("button", {
+    onClick: () => {
+      if (!props.activeprop) {
+        props.next();
+      }
+    }
+  }, "step through"), React.createElement("button", {
     onClick: () => {
       if (!props.activeprop) {
         props.clear();
@@ -28393,7 +28401,7 @@ const FizzBuzzLogic = (num, current) => {
 
   if (current && typeof value !== "number") {
     color = "red";
-    borderColor = "4px solid orange";
+    backgroundColor = "beige";
   }
 
   return React.createElement("div", {
@@ -28404,8 +28412,7 @@ const FizzBuzzLogic = (num, current) => {
     }
   }, React.createElement("div", {
     style: {
-      color: color,
-      border: borderColor
+      color: color
     }
   }, value));
 };
@@ -28524,6 +28531,7 @@ const App = () => {
   const initialNumbers = [...Array(length).keys()];
   const [current, setCurrent] = React.useState(-1);
   const [fizzArray, setNumbers] = React.useState(initialNumbers);
+  const [step, nextStep] = React.useState(-1);
   let [active, setActive] = React.useState(false); //https://github.com/parcel-bundler/parcel/issues/954
   //apparently parcel is calling babel for using async await but it's not needed because typescript provides its own
   // the fix was adding to package.json the config for browserslist -> last 1 Chrome version
@@ -28544,11 +28552,18 @@ const App = () => {
     setNumbers([...Array(length).keys()]);
   };
 
+  const stepThrough = () => {
+    let next = step + 1;
+    nextStep(next);
+    setCurrent(next);
+  };
+
   return React.createElement("div", null, React.createElement(buttons_1.default, {
     proppedFizzbuzz: fizzbuzz,
     activeprop: active,
     activeSetter: setActive,
-    clear: restart
+    clear: restart,
+    next: stepThrough
   }), React.createElement("div", {
     className: "grid-container"
   }, fizzArray.map(fizz => {

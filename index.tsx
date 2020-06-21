@@ -12,6 +12,7 @@ const App = () => {
   const initialNumbers = [...Array(length).keys()];
   const [current, setCurrent] = React.useState(-1);
   const [fizzArray, setNumbers] = React.useState<number[]>(initialNumbers);
+  const [step, nextStep] = React.useState<number>(-1);
   let [active, setActive] = React.useState(false);
   //https://github.com/parcel-bundler/parcel/issues/954
   //apparently parcel is calling babel for using async await but it's not needed because typescript provides its own
@@ -29,6 +30,12 @@ const App = () => {
     setNumbers([...Array(length).keys()]);
   };
 
+  const stepThrough = () => {
+    let next = step + 1;
+    nextStep(next);
+    setCurrent(next);
+  };
+
   return (
     <div>
       <Buttons
@@ -36,6 +43,7 @@ const App = () => {
         activeprop={active}
         activeSetter={setActive}
         clear={restart}
+        next={stepThrough}
       />
       <div className="grid-container">
         {fizzArray.map((fizz) => {
