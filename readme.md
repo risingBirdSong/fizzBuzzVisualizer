@@ -4,6 +4,8 @@ Inspired by Jeremy talking about students struggling with implementing fizz buzz
 
 a working draft. Currently you have to wait for the fast or slow to complete before you can clear. Step through you can clear at anytime. Encountered a bug when trying to clear inside the for loop, with a "stop command" state change not recognized there, whereas it is recognized with step through. I'll need to learn more about state changes inside the context of an already executing for loop.
 
+!(2020-06-20 (2).png)
+
 ## todo :
 
 add a representation of the fizz buzz code block and visualize how it executes.
