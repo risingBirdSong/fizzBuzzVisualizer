@@ -34,8 +34,8 @@ const Buttons = (props: fizzBuzzHandler): JSX.Element => {
       <button>step through</button>
       <button
         onClick={() => {
-          props.clear();
           if (!props.activeprop) {
+            props.clear();
           }
         }}
       >

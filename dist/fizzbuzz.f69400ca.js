@@ -28321,9 +28321,9 @@ const Buttons = props => {
     }
   }, "fast"), React.createElement("button", null, "step through"), React.createElement("button", {
     onClick: () => {
-      props.clear();
-
-      if (!props.activeprop) {}
+      if (!props.activeprop) {
+        props.clear();
+      }
     }
   }, "clear"));
 };
@@ -28524,15 +28524,13 @@ const App = () => {
   const initialNumbers = [...Array(length).keys()];
   const [current, setCurrent] = React.useState(-1);
   const [fizzArray, setNumbers] = React.useState(initialNumbers);
-  let [active, setActive] = React.useState(false);
-  let [stop, setStop] = React.useState(false); //https://github.com/parcel-bundler/parcel/issues/954
+  let [active, setActive] = React.useState(false); //https://github.com/parcel-bundler/parcel/issues/954
   //apparently parcel is calling babel for using async await but it's not needed because typescript provides its own
   // the fix was adding to package.json the config for browserslist -> last 1 Chrome version
 
   function fizzbuzz(delayAmount) {
     return __awaiter(this, void 0, void 0, function* () {
       for (let num of fizzArray) {
-        console.log("stop", stop);
         yield helpers_1.default(delayAmount);
         setCurrent(num);
       }
@@ -28544,7 +28542,6 @@ const App = () => {
   const restart = () => {
     setCurrent(-1);
     setNumbers([...Array(length).keys()]);
-    setStop(true);
   };
 
   return React.createElement("div", null, React.createElement(buttons_1.default, {
@@ -28552,13 +28549,7 @@ const App = () => {
     activeprop: active,
     activeSetter: setActive,
     clear: restart
-  }), React.createElement("button", {
-    onClick: () => {
-      console.log("want to stop before", stop);
-      setStop(true);
-      console.log("want to stop after", stop);
-    }
-  }, "stop"), React.createElement("div", {
+  }), React.createElement("div", {
     className: "grid-container"
   }, fizzArray.map(fizz => {
     {
@@ -28596,7 +28587,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57034" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61392" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
