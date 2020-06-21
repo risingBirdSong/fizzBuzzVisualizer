@@ -12,6 +12,9 @@
   "browserslist": [
     "last 1 Chrome version"
   ],
+  "scripts": {
+    "start": "parcel index.html --open"
+  },
   "dependencies": {
     "@types/react-dom": "^16.9.8",
     "react": "^16.13.1",
