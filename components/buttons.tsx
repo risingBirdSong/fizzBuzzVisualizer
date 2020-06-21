@@ -2,6 +2,9 @@ import * as React from "react";
 
 interface fizzBuzzHandler {
   proppedFizzbuzz: (num: number) => void;
+  activeprop: boolean;
+  activeSetter: React.Dispatch<React.SetStateAction<boolean>>;
+  clear: () => void;
 }
 
 const Buttons = (props: fizzBuzzHandler): JSX.Element => {
@@ -9,19 +12,35 @@ const Buttons = (props: fizzBuzzHandler): JSX.Element => {
     <div>
       <button
         onClick={() => {
-          props.proppedFizzbuzz(800);
+          if (props.activeprop === false) {
+            props.proppedFizzbuzz(600);
+            props.activeSetter(true);
+          }
         }}
       >
         fizzbuzz slowly
       </button>
       <button
         onClick={() => {
-          props.proppedFizzbuzz(300);
+          console.log("active prop", props.activeprop);
+          if (props.activeprop === false) {
+            props.proppedFizzbuzz(30);
+            props.activeSetter(true);
+          }
         }}
       >
         fast
       </button>
       <button>step through</button>
+      <button
+        onClick={() => {
+          props.clear();
+          if (!props.activeprop) {
+          }
+        }}
+      >
+        clear
+      </button>
     </div>
   );
 };
