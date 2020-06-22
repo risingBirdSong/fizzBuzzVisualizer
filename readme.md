@@ -2,13 +2,11 @@
 
 Inspired by Jeremy talking about students struggling with implementing fizz buzz; thought it would be interesting to visualize the fizzing and buzzing.
 
-a working draft. Currently you have to wait for the fast or slow to complete before you can clear. Step through you can clear at anytime. Encountered a bug when trying to clear inside the for loop, with a "stop command" state change not recognized there, whereas it is recognized with step through. I'll need to learn more about state changes inside the context of an already executing for loop.
+The fizzbuzz is visualized on the left and the code is represented on the right.
 
-![screenShot](/screenshot.png)
+For a given number, the block of code that handles it is highlighted with the same color of the representation on the left hand side. This is done to help illustrate the relationship between the code block and the visual output.
 
-## todo :
-
-add a representation of the fizz buzz code block and visualize how it executes.
+Currently you have to wait for the fast or slow to complete before you can clear. Step through you can clear at anytime. Encountered a bug when trying to clear inside the for loop, with a "stop command" state change not recognized there, whereas it is recognized with step through. I'll need to learn more about state changes inside the context of an already executing for loop.
 
 ## lessons :
 
