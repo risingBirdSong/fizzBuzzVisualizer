@@ -53,3 +53,46 @@ main {
 .code {
   font-size: 25px;
 }
+
+.control {
+  color: purple;
+}
+
+.variable {
+  color: purple;
+  font-style: italic;
+}
+
+.values {
+  color: orange;
+}
+
+.structure {
+  color: blue;
+}
+
+.string {
+  color: green;
+}
+
+.fizzBuzzStatus {
+  background-color: rgb(165, 42, 42, 0.5);
+}
+
+.fizzStatus {
+  background-color: rgba(128, 0, 128, 0.5);
+}
+
+.currentNum {
+  color: crimson;
+  font: 700;
+  font-size: 40px;
+}
+
+.buzzStatus {
+  background-color: chocolate;
+}
+
+.numberStatus {
+  background-color: rgba(1, 11, 19, 0.5);
+}

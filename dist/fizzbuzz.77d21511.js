@@ -1008,6 +1008,8 @@ try {
 
   var _codeRepresentation = _interopRequireDefault(require("./components/codeRepresentation"));
 
+  var _fizzHelper = require("./fizzHelper");
+
   var _jsxFileName = "C:\\Users\\Peter\\coding_home\\whereDSAmeetsBuilding\\fizzbuzz\\index.tsx",
       _s = $RefreshSig$();
 
@@ -1051,11 +1053,12 @@ try {
       setCurrent(next);
     };
 
+    let fizzStatus = (0, _fizzHelper.fizzHelper)(current);
     return /*#__PURE__*/React.createElement("main", {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 41,
+        lineNumber: 42,
         columnNumber: 5
       }
     }, /*#__PURE__*/React.createElement("div", {
@@ -1063,7 +1066,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 42,
+        lineNumber: 43,
         columnNumber: 7
       }
     }, /*#__PURE__*/React.createElement(_buttons.default, {
@@ -1075,7 +1078,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 43,
+        lineNumber: 44,
         columnNumber: 9
       }
     }), /*#__PURE__*/React.createElement("div", {
@@ -1083,7 +1086,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 50,
+        lineNumber: 51,
         columnNumber: 9
       }
     }, fizzArray.map(fizz => {
@@ -1095,14 +1098,16 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 58,
+        lineNumber: 59,
         columnNumber: 7
       }
     }, /*#__PURE__*/React.createElement(_codeRepresentation.default, {
+      currentNum: current,
+      fizzStatus: fizzStatus,
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 59,
+        lineNumber: 60,
         columnNumber: 9
       }
     })));
@@ -1116,7 +1121,7 @@ try {
     __self: void 0,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65,
+      lineNumber: 66,
       columnNumber: 17
     }
   }), document.getElementById("root"));
@@ -1129,7 +1134,7 @@ try {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"c3469d175e6ab91a6ebac2096f1b2459","react-dom":"651fc26ccddec1886b73afbdef9f97ee","./components/buttons":"760a8efc47a64954852797b29341b87f","./helpers":"00c65e00621bb5b0919a76c7a239381e","./components/fizzbuzzHandler":"6188d1c225d2ee4ae321c81c23f5d1f9","./node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"304bfcdf97c182c258933a329c4fc1cd","./components/codeRepresentation":"57bc00d94c7f0109571a092fc1f1287a"}],"c3469d175e6ab91a6ebac2096f1b2459":[function(require,module,exports) {
+},{"react":"c3469d175e6ab91a6ebac2096f1b2459","react-dom":"651fc26ccddec1886b73afbdef9f97ee","./components/buttons":"760a8efc47a64954852797b29341b87f","./helpers":"00c65e00621bb5b0919a76c7a239381e","./components/fizzbuzzHandler":"6188d1c225d2ee4ae321c81c23f5d1f9","./node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"304bfcdf97c182c258933a329c4fc1cd","./components/codeRepresentation":"57bc00d94c7f0109571a092fc1f1287a","./fizzHelper":"3d8acad69d5b940c3c14a2657f2218d5"}],"c3469d175e6ab91a6ebac2096f1b2459":[function(require,module,exports) {
 'use strict';
 
 if ("development" === 'production') {
@@ -29328,7 +29333,7 @@ try {
     }, /*#__PURE__*/React.createElement("button", {
       onClick: () => {
         if (!props.activeprop) {
-          props.proppedFizzbuzz(600);
+          props.proppedFizzbuzz(500);
           props.activeSetter(true);
         }
       },
@@ -29343,7 +29348,7 @@ try {
         console.log("active prop", props.activeprop);
 
         if (!props.activeprop) {
-          props.proppedFizzbuzz(30);
+          props.proppedFizzbuzz(200);
           props.activeSetter(true);
         }
       },
@@ -29675,6 +29680,8 @@ try {
 
   var React = _interopRequireWildcard(require("react"));
 
+  var _fizzHelper = require("../fizzHelper");
+
   var _jsxFileName = "C:\\Users\\Peter\\coding_home\\whereDSAmeetsBuilding\\fizzbuzz\\components\\fizzBuzzLogic.tsx";
 
   function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
@@ -29685,7 +29692,6 @@ try {
     let value = num;
     let backgroundColor = "beige";
     let color = "white";
-    let borderColor;
 
     if (num === 0) {
       value = 0;
@@ -29710,8 +29716,8 @@ try {
     }
 
     if (current && typeof value !== "number") {
-      color = "red";
-      backgroundColor = "beige";
+      color = (0, _fizzHelper.fizzColorHelper)(num);
+      backgroundColor = "white"; // borderColor = "2px purple";
     }
 
     return /*#__PURE__*/React.createElement("div", {
@@ -29723,7 +29729,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 33,
+        lineNumber: 35,
         columnNumber: 5
       }
     }, /*#__PURE__*/React.createElement("div", {
@@ -29733,7 +29739,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 38,
+        lineNumber: 40,
         columnNumber: 7
       }
     }, value));
@@ -29751,7 +29757,50 @@ try {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"c3469d175e6ab91a6ebac2096f1b2459","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"304bfcdf97c182c258933a329c4fc1cd"}],"57bc00d94c7f0109571a092fc1f1287a":[function(require,module,exports) {
+},{"react":"c3469d175e6ab91a6ebac2096f1b2459","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"304bfcdf97c182c258933a329c4fc1cd","../fizzHelper":"3d8acad69d5b940c3c14a2657f2218d5"}],"3d8acad69d5b940c3c14a2657f2218d5":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.fizzColorHelper = exports.fizzHelper = void 0;
+var FizzStatus;
+
+(function (FizzStatus) {
+  FizzStatus[FizzStatus["fizz"] = 0] = "fizz";
+  FizzStatus[FizzStatus["buzz"] = 1] = "buzz";
+  FizzStatus[FizzStatus["fizzbuzz"] = 2] = "fizzbuzz";
+  FizzStatus[FizzStatus["notfizzorbuzz"] = 3] = "notfizzorbuzz";
+})(FizzStatus || (FizzStatus = {}));
+
+const fizzHelper = num => {
+  if (num % 15 === 0) {
+    return FizzStatus["fizzbuzz"];
+  } else if (num % 3 === 0) {
+    return FizzStatus["fizz"];
+  } else if (num % 5 === 0) {
+    return FizzStatus["buzz"];
+  }
+
+  return FizzStatus["notfizzorbuzz"];
+};
+
+exports.fizzHelper = fizzHelper;
+
+const fizzColorHelper = num => {
+  if (num % 15 === 0) {
+    return "brown";
+  } else if (num % 3 === 0) {
+    return "purple";
+  } else if (num % 5 === 0) {
+    return "chocolate";
+  }
+
+  return "";
+};
+
+exports.fizzColorHelper = fizzColorHelper;
+},{}],"57bc00d94c7f0109571a092fc1f1287a":[function(require,module,exports) {
 "use strict";
 
 var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
@@ -29768,558 +29817,146 @@ try {
 
   var React = _interopRequireWildcard(require("react"));
 
+  var _htmlHelper = require("./htmlHelper");
+
+  var _ifFizzbuzz = _interopRequireDefault(require("./ifFizzbuzz"));
+
+  var _ifFizz = _interopRequireDefault(require("./ifFizz"));
+
+  var _ifBuzz = _interopRequireDefault(require("./ifBuzz"));
+
+  var _forLoop = _interopRequireDefault(require("./forLoop"));
+
+  var _elseNumber = _interopRequireDefault(require("./elseNumber"));
+
   var _jsxFileName = "C:\\Users\\Peter\\coding_home\\whereDSAmeetsBuilding\\fizzbuzz\\components\\codeRepresentation.tsx";
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
   function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
   function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-  const CodeRepresentation = () => {
+  var FizzStatus; //todo remove optional
+
+  (function (FizzStatus) {
+    FizzStatus[FizzStatus["fizz"] = 0] = "fizz";
+    FizzStatus[FizzStatus["buzz"] = 1] = "buzz";
+    FizzStatus[FizzStatus["fizzbuzz"] = 2] = "fizzbuzz";
+    FizzStatus[FizzStatus["notfizzorbuzz"] = 3] = "notfizzorbuzz";
+  })(FizzStatus || (FizzStatus = {}));
+
+  const CodeRepresentation = props => {
     //prettier-ignore
-    let leftBracket = "{";
-    let rightBracket = "}";
     return /*#__PURE__*/React.createElement("div", {
       className: "code",
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 8,
+        lineNumber: 25,
         columnNumber: 5
       }
     }, /*#__PURE__*/React.createElement("pre", {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 10,
+        lineNumber: 26,
         columnNumber: 7
       }
-    }, " ", /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "purple"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 12,
-        columnNumber: 9
-      }
-    }, "for"), /*#__PURE__*/React.createElement("span", {
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 13,
-        columnNumber: 9
-      }
-    }, /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "blue"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 14,
-        columnNumber: 11
-      }
-    }, "("), " ", /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "purple",
-        fontStyle: "italic"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 15,
-        columnNumber: 11
-      }
-    }, "let"), " ", /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "orange"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 16,
-        columnNumber: 11
-      }
-    }, "num"), " ", /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "blue"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 17,
-        columnNumber: 11
-      }
-    }, "of"), " numbers", " ", /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "blue"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 18,
-        columnNumber: 11
-      }
-    }, ")")), /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "blue"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 20,
-        columnNumber: 9
-      }
-    }, leftBracket), /*#__PURE__*/React.createElement("p", {
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 21,
-        columnNumber: 9
-      }
-    }, "\xA0\xA0\xA0\xA0 ", /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "purple"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 22,
-        columnNumber: 36
-      }
-    }, "if"), /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "blue"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 23,
-        columnNumber: 11
-      }
-    }, "("), /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "orange"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 24,
-        columnNumber: 11
-      }
-    }, "num"), " ", /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "blue"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 25,
-        columnNumber: 11
-      }
-    }, "%"), " ", /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "orange"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 26,
-        columnNumber: 11
-      }
-    }, "15"), " ", /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "purple"
-      },
+    }, /*#__PURE__*/React.createElement(_forLoop.default, {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 27,
-        columnNumber: 11
+        columnNumber: 9
       }
-    }, "==="), " ", /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "orange"
-      },
+    }), /*#__PURE__*/React.createElement("p", {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 28,
-        columnNumber: 11
+        columnNumber: 10
       }
-    }, "0"), " ", /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "blue"
-      },
+    }, " ", /*#__PURE__*/React.createElement(_htmlHelper.Tab, {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 28,
+        columnNumber: 14
+      }
+    }), " log(", /*#__PURE__*/React.createElement("span", {
+      className: "values",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 28,
+        columnNumber: 25
+      }
+    }, "num"), ") ", /*#__PURE__*/React.createElement("span", {
+      className: "currentNum",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 28,
+        columnNumber: 62
+      }
+    }, props.currentNum)), /*#__PURE__*/React.createElement("p", {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 29,
-        columnNumber: 11
+        columnNumber: 9
       }
-    }, ")"), /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "blue"
-      },
+    }, /*#__PURE__*/React.createElement(_ifFizzbuzz.default, {
+      status: props.fizzStatus,
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 30,
-        columnNumber: 11
+        columnNumber: 10
       }
-    }, leftBracket), /*#__PURE__*/React.createElement("p", {
+    }), /*#__PURE__*/React.createElement(_ifFizz.default, {
+      status: props.fizzStatus,
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 31,
-        columnNumber: 11
+        columnNumber: 10
       }
-    }), "\xA0\xA0\xA0\xA0", /*#__PURE__*/React.createElement("span", {
+    }), /*#__PURE__*/React.createElement(_ifBuzz.default, {
+      status: props.fizzStatus,
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 32,
+        columnNumber: 10
+      }
+    }), /*#__PURE__*/React.createElement(_elseNumber.default, {
+      status: props.fizzStatus,
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 33,
-        columnNumber: 11
+        columnNumber: 10
       }
-    }, " ", /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "purple"
-      },
+    }), /*#__PURE__*/React.createElement("p", {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 34,
+        columnNumber: 10
+      }
+    }), /*#__PURE__*/React.createElement("span", {
+      className: "structure",
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 35,
-        columnNumber: 13
+        columnNumber: 7
       }
-    }, "return"), " ", /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "green"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 36,
-        columnNumber: 13
-      }
-    }, "\"fizzbuzz\""), " "), /*#__PURE__*/React.createElement("p", {
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 38,
-        columnNumber: 11
-      }
-    }), "\xA0\xA0\xA0\xA0", /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "blue"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 40,
-        columnNumber: 11
-      }
-    }, rightBracket), /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "purple"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 42,
-        columnNumber: 11
-      }
-    }, "\xA0else if "), /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "blue"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 43,
-        columnNumber: 11
-      }
-    }, "("), /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "orange"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 44,
-        columnNumber: 11
-      }
-    }, "num"), " ", /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "blue"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 45,
-        columnNumber: 11
-      }
-    }, "%"), " ", /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "orange"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 46,
-        columnNumber: 11
-      }
-    }, "3"), " ", /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "purple"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 47,
-        columnNumber: 11
-      }
-    }, "==="), " ", /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "orange"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 48,
-        columnNumber: 11
-      }
-    }, "0"), " ", /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "blue"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 49,
-        columnNumber: 11
-      }
-    }, ")"), /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "blue"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 50,
-        columnNumber: 11
-      }
-    }, leftBracket), /*#__PURE__*/React.createElement("p", {
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 51,
-        columnNumber: 11
-      }
-    }), "\xA0\xA0\xA0\xA0", /*#__PURE__*/React.createElement("span", {
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 53,
-        columnNumber: 11
-      }
-    }, " ", /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "purple"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 55,
-        columnNumber: 13
-      }
-    }, "return"), " ", /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "green"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 56,
-        columnNumber: 13
-      }
-    }, "\"fizz\""), " "), /*#__PURE__*/React.createElement("p", {
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 58,
-        columnNumber: 11
-      }
-    }), "\xA0\xA0\xA0\xA0", /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "blue"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 60,
-        columnNumber: 11
-      }
-    }, rightBracket), /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "purple"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 63,
-        columnNumber: 11
-      }
-    }, "\xA0else if "), /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "blue"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 64,
-        columnNumber: 11
-      }
-    }, "("), /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "orange"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 65,
-        columnNumber: 11
-      }
-    }, "num"), " ", /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "blue"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 66,
-        columnNumber: 11
-      }
-    }, "%"), " ", /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "orange"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 67,
-        columnNumber: 11
-      }
-    }, "5"), " ", /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "purple"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 68,
-        columnNumber: 11
-      }
-    }, "==="), " ", /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "orange"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 69,
-        columnNumber: 11
-      }
-    }, "0"), " ", /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "blue"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 70,
-        columnNumber: 11
-      }
-    }, ")"), /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "blue"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 71,
-        columnNumber: 11
-      }
-    }, leftBracket), /*#__PURE__*/React.createElement("p", {
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 72,
-        columnNumber: 11
-      }
-    }), "\xA0\xA0\xA0\xA0", /*#__PURE__*/React.createElement("span", {
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 74,
-        columnNumber: 11
-      }
-    }, " ", /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "purple"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 76,
-        columnNumber: 13
-      }
-    }, "return"), " ", /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "green"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 77,
-        columnNumber: 13
-      }
-    }, "\"buzz\""), " "), /*#__PURE__*/React.createElement("p", {
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 79,
-        columnNumber: 11
-      }
-    }), "\xA0\xA0\xA0\xA0", /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "blue"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 81,
-        columnNumber: 11
-      }
-    }, rightBracket), /*#__PURE__*/React.createElement("p", {
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 83,
-        columnNumber: 11
-      }
-    }), /*#__PURE__*/React.createElement("span", {
-      style: {
-        color: "blue"
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 84,
-        columnNumber: 11
-      }
-    }, rightBracket))));
-  };
+    }, _htmlHelper.rightBracket))));
+  }; //Tab
+
 
   _c = CodeRepresentation;
   var _default = CodeRepresentation;
@@ -30333,6 +29970,903 @@ try {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"c3469d175e6ab91a6ebac2096f1b2459","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"304bfcdf97c182c258933a329c4fc1cd"}]},{},["64c1770b35b04eb343009bb27a752262","c8e22adb247f24f3c3b9847662312355","086e796d0dcbbcf0f3938fe09be3a5b7"], null)
+},{"react":"c3469d175e6ab91a6ebac2096f1b2459","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"304bfcdf97c182c258933a329c4fc1cd","./htmlHelper":"b231c4648225779bf4f6a486491c266a","./ifFizzbuzz":"510feb480da3d82c0382b818c2dff9e8","./ifFizz":"035f433b4c4085d45251910a7b5ac1f7","./ifBuzz":"f49680d18ac2806b7e97c36c0e383d17","./forLoop":"890cd8c170fe23db20f9b09ceb8fb9d3","./elseNumber":"fcf2546bc91ab347d3828e782e2b2e16"}],"b231c4648225779bf4f6a486491c266a":[function(require,module,exports) {
+"use strict";
+
+var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.rightBracket = exports.leftBracket = exports.Tab = void 0;
+
+  var React = _interopRequireWildcard(require("react"));
+
+  var _jsxFileName = "C:\\Users\\Peter\\coding_home\\whereDSAmeetsBuilding\\fizzbuzz\\components\\htmlHelper.tsx";
+
+  function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+  function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+  const Tab = () => {
+    return /*#__PURE__*/React.createElement(React.Fragment, {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 4,
+        columnNumber: 10
+      }
+    }, "\xA0\xA0\xA0\xA0");
+  };
+
+  exports.Tab = Tab;
+  _c = Tab;
+  let leftBracket = "{";
+  exports.leftBracket = leftBracket;
+  let rightBracket = "}";
+  exports.rightBracket = rightBracket;
+
+  var _c;
+
+  $RefreshReg$(_c, "Tab");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react":"c3469d175e6ab91a6ebac2096f1b2459","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"304bfcdf97c182c258933a329c4fc1cd"}],"510feb480da3d82c0382b818c2dff9e8":[function(require,module,exports) {
+"use strict";
+
+var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = void 0;
+
+  var React = _interopRequireWildcard(require("react"));
+
+  var _htmlHelper = require("./htmlHelper");
+
+  var _fizzEnum = _interopRequireDefault(require("../fizzEnum"));
+
+  var _jsxFileName = "C:\\Users\\Peter\\coding_home\\whereDSAmeetsBuilding\\fizzbuzz\\components\\ifFizzbuzz.tsx";
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+  function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+  const IfFizzBuzz = props => {
+    return /*#__PURE__*/React.createElement("div", {
+      className: props.status === _fizzEnum.default["fizzbuzz"] ? "fizzBuzzStatus" : "",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 7,
+        columnNumber: 5
+      }
+    }, /*#__PURE__*/React.createElement(_htmlHelper.Tab, {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 10,
+        columnNumber: 7
+      }
+    }), " ", /*#__PURE__*/React.createElement("span", {
+      className: "control",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 10,
+        columnNumber: 15
+      }
+    }, " if "), /*#__PURE__*/React.createElement("span", {
+      className: "structure",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 11,
+        columnNumber: 7
+      }
+    }, "("), /*#__PURE__*/React.createElement("span", {
+      className: "values",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 12,
+        columnNumber: 7
+      }
+    }, "num"), " ", /*#__PURE__*/React.createElement("span", {
+      className: "structure",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 14,
+        columnNumber: 15
+      }
+    }, "%"), " ", /*#__PURE__*/React.createElement("span", {
+      className: "values",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 15,
+        columnNumber: 7
+      }
+    }, "15"), " ", /*#__PURE__*/React.createElement("span", {
+      className: "control",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 15,
+        columnNumber: 42
+      }
+    }, "==="), " ", /*#__PURE__*/React.createElement("span", {
+      className: "values",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 16,
+        columnNumber: 7
+      }
+    }, "0"), " ", /*#__PURE__*/React.createElement("span", {
+      className: "structure",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 16,
+        columnNumber: 41
+      }
+    }, ")"), /*#__PURE__*/React.createElement("span", {
+      className: "structure",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 17,
+        columnNumber: 7
+      }
+    }, _htmlHelper.leftBracket), /*#__PURE__*/React.createElement("p", {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 18,
+        columnNumber: 7
+      }
+    }), /*#__PURE__*/React.createElement(_htmlHelper.Tab, {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 19,
+        columnNumber: 7
+      }
+    }), /*#__PURE__*/React.createElement("span", {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 20,
+        columnNumber: 7
+      }
+    }, " ", /*#__PURE__*/React.createElement(_htmlHelper.Tab, {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 22,
+        columnNumber: 9
+      }
+    }), " ", /*#__PURE__*/React.createElement("span", {
+      className: "control",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 22,
+        columnNumber: 21
+      }
+    }, "return"), " ", /*#__PURE__*/React.createElement("span", {
+      className: "string",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 23,
+        columnNumber: 9
+      }
+    }, "\"fizzbuzz\""), " "), /*#__PURE__*/React.createElement("p", {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 25,
+        columnNumber: 7
+      }
+    }), /*#__PURE__*/React.createElement(_htmlHelper.Tab, {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 26,
+        columnNumber: 7
+      }
+    }), /*#__PURE__*/React.createElement(_htmlHelper.Tab, {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 27,
+        columnNumber: 7
+      }
+    }), /*#__PURE__*/React.createElement("span", {
+      className: "structure",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 28,
+        columnNumber: 7
+      }
+    }, _htmlHelper.rightBracket));
+  };
+
+  _c = IfFizzBuzz;
+  var _default = IfFizzBuzz;
+  exports.default = _default;
+
+  var _c;
+
+  $RefreshReg$(_c, "IfFizzBuzz");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react":"c3469d175e6ab91a6ebac2096f1b2459","./htmlHelper":"b231c4648225779bf4f6a486491c266a","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"304bfcdf97c182c258933a329c4fc1cd","../fizzEnum":"95cd7f9c7a66b7e0a5f1d54d6529141b"}],"95cd7f9c7a66b7e0a5f1d54d6529141b":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var FizzStatus;
+
+(function (FizzStatus) {
+  FizzStatus[FizzStatus["fizz"] = 0] = "fizz";
+  FizzStatus[FizzStatus["buzz"] = 1] = "buzz";
+  FizzStatus[FizzStatus["fizzbuzz"] = 2] = "fizzbuzz";
+  FizzStatus[FizzStatus["notfizzorbuzz"] = 3] = "notfizzorbuzz";
+})(FizzStatus || (FizzStatus = {}));
+
+var _default = FizzStatus;
+exports.default = _default;
+},{}],"035f433b4c4085d45251910a7b5ac1f7":[function(require,module,exports) {
+"use strict";
+
+var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = void 0;
+
+  var React = _interopRequireWildcard(require("react"));
+
+  var _fizzEnum = _interopRequireDefault(require("../fizzEnum"));
+
+  var _htmlHelper = require("./htmlHelper");
+
+  var _jsxFileName = "C:\\Users\\Peter\\coding_home\\whereDSAmeetsBuilding\\fizzbuzz\\components\\ifFizz.tsx";
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+  function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+  const IfFizz = props => {
+    return /*#__PURE__*/React.createElement("div", {
+      className: props.status === _fizzEnum.default["fizz"] ? "fizzStatus" : "",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 7,
+        columnNumber: 5
+      }
+    }, /*#__PURE__*/React.createElement("p", {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 8,
+        columnNumber: 7
+      }
+    }), /*#__PURE__*/React.createElement(_htmlHelper.Tab, {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 9,
+        columnNumber: 7
+      }
+    }), /*#__PURE__*/React.createElement("span", {
+      className: "control",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 10,
+        columnNumber: 7
+      }
+    }, "\xA0 else if "), /*#__PURE__*/React.createElement("span", {
+      className: "structure",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 11,
+        columnNumber: 7
+      }
+    }, "("), /*#__PURE__*/React.createElement("span", {
+      className: "values",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 12,
+        columnNumber: 7
+      }
+    }, "num"), " ", /*#__PURE__*/React.createElement("span", {
+      className: "structure",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 14,
+        columnNumber: 15
+      }
+    }, "%"), " ", /*#__PURE__*/React.createElement("span", {
+      className: "values",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 15,
+        columnNumber: 7
+      }
+    }, "3"), " ", /*#__PURE__*/React.createElement("span", {
+      className: "control",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 15,
+        columnNumber: 41
+      }
+    }, "==="), " ", /*#__PURE__*/React.createElement("span", {
+      className: "values",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 16,
+        columnNumber: 7
+      }
+    }, "0"), " ", /*#__PURE__*/React.createElement("span", {
+      className: "structure",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 16,
+        columnNumber: 41
+      }
+    }, ")"), /*#__PURE__*/React.createElement("span", {
+      className: "structure",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 17,
+        columnNumber: 7
+      }
+    }, _htmlHelper.leftBracket), /*#__PURE__*/React.createElement("p", {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 18,
+        columnNumber: 7
+      }
+    }), /*#__PURE__*/React.createElement(_htmlHelper.Tab, {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 19,
+        columnNumber: 7
+      }
+    }), /*#__PURE__*/React.createElement("span", {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 20,
+        columnNumber: 7
+      }
+    }, " ", /*#__PURE__*/React.createElement(_htmlHelper.Tab, {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 22,
+        columnNumber: 9
+      }
+    }), " ", /*#__PURE__*/React.createElement("span", {
+      className: "control",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 22,
+        columnNumber: 21
+      }
+    }, "return"), " ", /*#__PURE__*/React.createElement("span", {
+      className: "string",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 23,
+        columnNumber: 9
+      }
+    }, "\"fizz\""), " "), /*#__PURE__*/React.createElement("p", {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 25,
+        columnNumber: 7
+      }
+    }), /*#__PURE__*/React.createElement(_htmlHelper.Tab, {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 26,
+        columnNumber: 7
+      }
+    }), /*#__PURE__*/React.createElement(_htmlHelper.Tab, {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 27,
+        columnNumber: 7
+      }
+    }), /*#__PURE__*/React.createElement("span", {
+      className: "structure",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 28,
+        columnNumber: 7
+      }
+    }, _htmlHelper.rightBracket));
+  };
+
+  _c = IfFizz;
+  var _default = IfFizz;
+  exports.default = _default;
+
+  var _c;
+
+  $RefreshReg$(_c, "IfFizz");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react":"c3469d175e6ab91a6ebac2096f1b2459","./htmlHelper":"b231c4648225779bf4f6a486491c266a","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"304bfcdf97c182c258933a329c4fc1cd","../fizzEnum":"95cd7f9c7a66b7e0a5f1d54d6529141b"}],"f49680d18ac2806b7e97c36c0e383d17":[function(require,module,exports) {
+"use strict";
+
+var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = void 0;
+
+  var React = _interopRequireWildcard(require("react"));
+
+  var _fizzEnum = _interopRequireDefault(require("../fizzEnum"));
+
+  var _htmlHelper = require("./htmlHelper");
+
+  var _jsxFileName = "C:\\Users\\Peter\\coding_home\\whereDSAmeetsBuilding\\fizzbuzz\\components\\ifBuzz.tsx";
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+  function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+  const IfBuzz = props => {
+    return /*#__PURE__*/React.createElement("div", {
+      className: props.status === _fizzEnum.default["buzz"] ? "buzzStatus" : "",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 7,
+        columnNumber: 5
+      }
+    }, /*#__PURE__*/React.createElement("p", {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 8,
+        columnNumber: 7
+      }
+    }), /*#__PURE__*/React.createElement(_htmlHelper.Tab, {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 9,
+        columnNumber: 7
+      }
+    }), " ", /*#__PURE__*/React.createElement("span", {
+      className: "control",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 9,
+        columnNumber: 15
+      }
+    }, "\xA0else if "), /*#__PURE__*/React.createElement("span", {
+      className: "structure",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 10,
+        columnNumber: 7
+      }
+    }, "("), /*#__PURE__*/React.createElement("span", {
+      className: "values",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 11,
+        columnNumber: 7
+      }
+    }, "num"), " ", /*#__PURE__*/React.createElement("span", {
+      className: "structure",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 13,
+        columnNumber: 15
+      }
+    }, "%"), " ", /*#__PURE__*/React.createElement("span", {
+      className: "values",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 14,
+        columnNumber: 7
+      }
+    }, "5"), " ", /*#__PURE__*/React.createElement("span", {
+      className: "control",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 14,
+        columnNumber: 41
+      }
+    }, "==="), " ", /*#__PURE__*/React.createElement("span", {
+      className: "values",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 15,
+        columnNumber: 7
+      }
+    }, "0"), " ", /*#__PURE__*/React.createElement("span", {
+      className: "structure",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 15,
+        columnNumber: 41
+      }
+    }, ")"), /*#__PURE__*/React.createElement("span", {
+      className: "structure",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 16,
+        columnNumber: 7
+      }
+    }, _htmlHelper.leftBracket), /*#__PURE__*/React.createElement("p", {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 17,
+        columnNumber: 7
+      }
+    }), /*#__PURE__*/React.createElement(_htmlHelper.Tab, {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 18,
+        columnNumber: 7
+      }
+    }), /*#__PURE__*/React.createElement("span", {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 19,
+        columnNumber: 7
+      }
+    }, " ", /*#__PURE__*/React.createElement(_htmlHelper.Tab, {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 21,
+        columnNumber: 9
+      }
+    }), " ", /*#__PURE__*/React.createElement("span", {
+      className: "control",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 21,
+        columnNumber: 17
+      }
+    }, " return"), " ", /*#__PURE__*/React.createElement("span", {
+      className: "string",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 22,
+        columnNumber: 9
+      }
+    }, "\"buzz\""), " "), /*#__PURE__*/React.createElement("p", {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 24,
+        columnNumber: 7
+      }
+    }), /*#__PURE__*/React.createElement(_htmlHelper.Tab, {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 25,
+        columnNumber: 7
+      }
+    }), /*#__PURE__*/React.createElement(_htmlHelper.Tab, {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 26,
+        columnNumber: 7
+      }
+    }), /*#__PURE__*/React.createElement("span", {
+      className: "structure",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 27,
+        columnNumber: 7
+      }
+    }, _htmlHelper.rightBracket));
+  };
+
+  _c = IfBuzz;
+  var _default = IfBuzz;
+  exports.default = _default;
+
+  var _c;
+
+  $RefreshReg$(_c, "IfBuzz");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react":"c3469d175e6ab91a6ebac2096f1b2459","./htmlHelper":"b231c4648225779bf4f6a486491c266a","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"304bfcdf97c182c258933a329c4fc1cd","../fizzEnum":"95cd7f9c7a66b7e0a5f1d54d6529141b"}],"890cd8c170fe23db20f9b09ceb8fb9d3":[function(require,module,exports) {
+"use strict";
+
+var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = void 0;
+
+  var React = _interopRequireWildcard(require("react"));
+
+  var _htmlHelper = require("./htmlHelper");
+
+  var _jsxFileName = "C:\\Users\\Peter\\coding_home\\whereDSAmeetsBuilding\\fizzbuzz\\components\\forLoop.tsx";
+
+  function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+  function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+  const ForLoop = () => {
+    return /*#__PURE__*/React.createElement("div", {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 7,
+        columnNumber: 5
+      }
+    }, " ", /*#__PURE__*/React.createElement("span", {
+      className: "control",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 9,
+        columnNumber: 7
+      }
+    }, "for"), /*#__PURE__*/React.createElement("span", {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 10,
+        columnNumber: 7
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      className: "structure",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 11,
+        columnNumber: 9
+      }
+    }, "("), " ", /*#__PURE__*/React.createElement("span", {
+      className: "variable",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 12,
+        columnNumber: 9
+      }
+    }, "let"), " ", /*#__PURE__*/React.createElement("span", {
+      className: "values",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 13,
+        columnNumber: 9
+      }
+    }, "num"), " ", /*#__PURE__*/React.createElement("span", {
+      className: "structure",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 14,
+        columnNumber: 9
+      }
+    }, "of"), " numbers", " ", /*#__PURE__*/React.createElement("span", {
+      className: "structure",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 15,
+        columnNumber: 9
+      }
+    }, ")")), /*#__PURE__*/React.createElement("span", {
+      className: "structure",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 17,
+        columnNumber: 7
+      }
+    }, _htmlHelper.leftBracket));
+  };
+
+  _c = ForLoop;
+  var _default = ForLoop;
+  exports.default = _default;
+
+  var _c;
+
+  $RefreshReg$(_c, "ForLoop");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react":"c3469d175e6ab91a6ebac2096f1b2459","./htmlHelper":"b231c4648225779bf4f6a486491c266a","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"304bfcdf97c182c258933a329c4fc1cd"}],"fcf2546bc91ab347d3828e782e2b2e16":[function(require,module,exports) {
+"use strict";
+
+var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = void 0;
+
+  var React = _interopRequireWildcard(require("react"));
+
+  var _fizzEnum = _interopRequireDefault(require("../fizzEnum"));
+
+  var _htmlHelper = require("./htmlHelper");
+
+  var _jsxFileName = "C:\\Users\\Peter\\coding_home\\whereDSAmeetsBuilding\\fizzbuzz\\components\\elseNumber.tsx";
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+  function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+  const ElseNumber = props => {
+    return /*#__PURE__*/React.createElement("div", {
+      className: props.status === _fizzEnum.default["notfizzorbuzz"] ? "numberStatus" : "",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 7,
+        columnNumber: 5
+      }
+    }, /*#__PURE__*/React.createElement("p", {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 12,
+        columnNumber: 7
+      }
+    }), /*#__PURE__*/React.createElement("span", {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 13,
+        columnNumber: 7
+      }
+    }, " ", /*#__PURE__*/React.createElement(_htmlHelper.Tab, {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 15,
+        columnNumber: 9
+      }
+    }), " ", /*#__PURE__*/React.createElement("span", {
+      className: "control",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 15,
+        columnNumber: 17
+      }
+    }, " return"), " ", /*#__PURE__*/React.createElement("span", {
+      className: "values",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 16,
+        columnNumber: 9
+      }
+    }, "num"), " "));
+  };
+
+  _c = ElseNumber;
+  var _default = ElseNumber;
+  exports.default = _default;
+
+  var _c;
+
+  $RefreshReg$(_c, "ElseNumber");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react":"c3469d175e6ab91a6ebac2096f1b2459","../fizzEnum":"95cd7f9c7a66b7e0a5f1d54d6529141b","./htmlHelper":"b231c4648225779bf4f6a486491c266a","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"304bfcdf97c182c258933a329c4fc1cd"}]},{},["64c1770b35b04eb343009bb27a752262","c8e22adb247f24f3c3b9847662312355","086e796d0dcbbcf0f3938fe09be3a5b7"], null)
 
 //# sourceMappingURL=fizzbuzz.77d21511.js.map

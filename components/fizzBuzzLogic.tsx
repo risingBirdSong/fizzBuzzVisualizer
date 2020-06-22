@@ -1,9 +1,10 @@
 import * as React from "react";
+import { fizzHelper, fizzColorHelper } from "../fizzHelper";
 const FizzBuzzLogic = (num: number, current?: boolean) => {
   let value: string | number = num;
   let backgroundColor: string = "beige";
   let color: string = "white";
-  let borderColor;
+
   if (num === 0) {
     value = 0;
     backgroundColor = "burlywood";
@@ -26,8 +27,9 @@ const FizzBuzzLogic = (num: number, current?: boolean) => {
     color = "black";
   }
   if (current && typeof value !== "number") {
-    color = "red";
-    backgroundColor = "beige";
+    color = fizzColorHelper(num);
+    backgroundColor = "white";
+    // borderColor = "2px purple";
   }
   return (
     <div

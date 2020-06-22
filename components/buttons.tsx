@@ -14,7 +14,7 @@ const Buttons = (props: fizzBuzzHandler): JSX.Element => {
       <button
         onClick={() => {
           if (!props.activeprop) {
-            props.proppedFizzbuzz(600);
+            props.proppedFizzbuzz(500);
             props.activeSetter(true);
           }
         }}
@@ -25,7 +25,7 @@ const Buttons = (props: fizzBuzzHandler): JSX.Element => {
         onClick={() => {
           console.log("active prop", props.activeprop);
           if (!props.activeprop) {
-            props.proppedFizzbuzz(30);
+            props.proppedFizzbuzz(200);
             props.activeSetter(true);
           }
         }}

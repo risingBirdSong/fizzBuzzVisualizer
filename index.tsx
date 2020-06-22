@@ -4,6 +4,7 @@ import Buttons from "./components/buttons";
 import delayer from "./helpers";
 import fizzBuzzHandler from "./components/fizzbuzzHandler";
 import CodeRepresentation from "./components/codeRepresentation";
+import { fizzHelper } from "./fizzHelper";
 
 // const React = require("react");
 // const ReactDOM = require("react-dom");
@@ -36,7 +37,7 @@ const App = () => {
     nextStep(next);
     setCurrent(next);
   };
-
+  let fizzStatus = fizzHelper(current);
   return (
     <main>
       <div className="fizzcenter">
@@ -56,7 +57,7 @@ const App = () => {
         </div>
       </div>
       <div className="codeblock">
-        <CodeRepresentation />
+        <CodeRepresentation currentNum={current} fizzStatus={fizzStatus} />
       </div>
     </main>
   );
