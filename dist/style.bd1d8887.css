@@ -1,3 +1,8 @@
+main {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .buttons-container {
   display: grid;
   justify-content: center;
@@ -13,7 +18,8 @@
 
 .grid-container {
   display: grid;
-  justify-content: center;
+  justify-content: start;
+  width: fit-content;
   grid-template-columns: [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px;
   grid-template-rows: [row] auto [row]auto [row];
   background-color: #2196f3;
@@ -35,6 +41,60 @@
   font-size: 20px;
   text-align: center;
   height: 30px;
+}
+
+.codeblock {
+  display: flex;
+  justify-content: center;
+  align-self: flex-start;
+  margin-top: 7vh;
+}
+
+.code {
+  font-size: 25px;
+}
+
+.control {
+  color: purple;
+}
+
+.variable {
+  color: purple;
+  font-style: italic;
+}
+
+.values {
+  color: orange;
+}
+
+.structure {
+  color: blue;
+}
+
+.string {
+  color: green;
+}
+
+.fizzBuzzStatus {
+  background-color: rgb(165, 42, 42, 0.5);
+}
+
+.fizzStatus {
+  background-color: rgba(128, 0, 128, 0.5);
+}
+
+.currentNum {
+  color: crimson;
+  font: 700;
+  font-size: 40px;
+}
+
+.buzzStatus {
+  background-color: chocolate;
+}
+
+.numberStatus {
+  background-color: rgba(1, 11, 19, 0.5);
 }
 
 /*# sourceMappingURL=style.bd1d8887.css.map */

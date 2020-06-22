@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 import Buttons from "./components/buttons";
 import delayer from "./helpers";
 import fizzBuzzHandler from "./components/fizzbuzzHandler";
+import CodeRepresentation from "./components/codeRepresentation";
+import { fizzHelper } from "./fizzHelper";
 
 // const React = require("react");
 // const ReactDOM = require("react-dom");
@@ -35,24 +37,29 @@ const App = () => {
     nextStep(next);
     setCurrent(next);
   };
-
+  let fizzStatus = fizzHelper(current);
   return (
-    <div>
-      <Buttons
-        proppedFizzbuzz={fizzbuzz}
-        activeprop={active}
-        activeSetter={setActive}
-        clear={restart}
-        next={stepThrough}
-      />
-      <div className="grid-container">
-        {fizzArray.map((fizz) => {
-          {
-            return fizzBuzzHandler(fizz, current);
-          }
-        })}
+    <main>
+      <div className="fizzcenter">
+        <Buttons
+          proppedFizzbuzz={fizzbuzz}
+          activeprop={active}
+          activeSetter={setActive}
+          clear={restart}
+          next={stepThrough}
+        />
+        <div className="grid-container">
+          {fizzArray.map((fizz) => {
+            {
+              return fizzBuzzHandler(fizz, current);
+            }
+          })}
+        </div>
       </div>
-    </div>
+      <div className="codeblock">
+        <CodeRepresentation currentNum={current} fizzStatus={fizzStatus} />
+      </div>
+    </main>
   );
 };
 
