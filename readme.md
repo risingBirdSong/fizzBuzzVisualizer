@@ -6,7 +6,6 @@ a working draft. Currently you have to wait for the fast or slow to complete bef
 
 ![screenShot](/screenshot.png)
 
-
 ## todo :
 
 add a representation of the fizz buzz code block and visualize how it executes.

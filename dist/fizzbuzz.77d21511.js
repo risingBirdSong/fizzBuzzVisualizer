@@ -1006,6 +1006,8 @@ try {
 
   var _fizzbuzzHandler = _interopRequireDefault(require("./components/fizzbuzzHandler"));
 
+  var _codeRepresentation = _interopRequireDefault(require("./components/codeRepresentation"));
+
   var _jsxFileName = "C:\\Users\\Peter\\coding_home\\whereDSAmeetsBuilding\\fizzbuzz\\index.tsx",
       _s = $RefreshSig$();
 
@@ -1049,12 +1051,20 @@ try {
       setCurrent(next);
     };
 
-    return /*#__PURE__*/React.createElement("div", {
+    return /*#__PURE__*/React.createElement("main", {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 40,
+        lineNumber: 41,
         columnNumber: 5
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "fizzcenter",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 42,
+        columnNumber: 7
       }
     }, /*#__PURE__*/React.createElement(_buttons.default, {
       proppedFizzbuzz: fizzbuzz,
@@ -1065,20 +1075,35 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 41,
-        columnNumber: 7
+        lineNumber: 43,
+        columnNumber: 9
       }
     }), /*#__PURE__*/React.createElement("div", {
       className: "grid-container",
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 48,
-        columnNumber: 7
+        lineNumber: 50,
+        columnNumber: 9
       }
     }, fizzArray.map(fizz => {
       {
         return (0, _fizzbuzzHandler.default)(fizz, current);
+      }
+    }))), /*#__PURE__*/React.createElement("div", {
+      className: "codeblock",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 58,
+        columnNumber: 7
+      }
+    }, /*#__PURE__*/React.createElement(_codeRepresentation.default, {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 59,
+        columnNumber: 9
       }
     })));
   };
@@ -1091,7 +1116,7 @@ try {
     __self: void 0,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 59,
+      lineNumber: 65,
       columnNumber: 17
     }
   }), document.getElementById("root"));
@@ -1104,7 +1129,7 @@ try {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"c3469d175e6ab91a6ebac2096f1b2459","react-dom":"651fc26ccddec1886b73afbdef9f97ee","./components/buttons":"760a8efc47a64954852797b29341b87f","./helpers":"00c65e00621bb5b0919a76c7a239381e","./components/fizzbuzzHandler":"6188d1c225d2ee4ae321c81c23f5d1f9","./node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"304bfcdf97c182c258933a329c4fc1cd"}],"c3469d175e6ab91a6ebac2096f1b2459":[function(require,module,exports) {
+},{"react":"c3469d175e6ab91a6ebac2096f1b2459","react-dom":"651fc26ccddec1886b73afbdef9f97ee","./components/buttons":"760a8efc47a64954852797b29341b87f","./helpers":"00c65e00621bb5b0919a76c7a239381e","./components/fizzbuzzHandler":"6188d1c225d2ee4ae321c81c23f5d1f9","./node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"304bfcdf97c182c258933a329c4fc1cd","./components/codeRepresentation":"57bc00d94c7f0109571a092fc1f1287a"}],"c3469d175e6ab91a6ebac2096f1b2459":[function(require,module,exports) {
 'use strict';
 
 if ("development" === 'production') {
@@ -29721,6 +29746,588 @@ try {
   var _c;
 
   $RefreshReg$(_c, "FizzBuzzLogic");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react":"c3469d175e6ab91a6ebac2096f1b2459","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"304bfcdf97c182c258933a329c4fc1cd"}],"57bc00d94c7f0109571a092fc1f1287a":[function(require,module,exports) {
+"use strict";
+
+var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = void 0;
+
+  var React = _interopRequireWildcard(require("react"));
+
+  var _jsxFileName = "C:\\Users\\Peter\\coding_home\\whereDSAmeetsBuilding\\fizzbuzz\\components\\codeRepresentation.tsx";
+
+  function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+  function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+  const CodeRepresentation = () => {
+    //prettier-ignore
+    let leftBracket = "{";
+    let rightBracket = "}";
+    return /*#__PURE__*/React.createElement("div", {
+      className: "code",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 8,
+        columnNumber: 5
+      }
+    }, /*#__PURE__*/React.createElement("pre", {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 10,
+        columnNumber: 7
+      }
+    }, " ", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "purple"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 12,
+        columnNumber: 9
+      }
+    }, "for"), /*#__PURE__*/React.createElement("span", {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 13,
+        columnNumber: 9
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "blue"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 14,
+        columnNumber: 11
+      }
+    }, "("), " ", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "purple",
+        fontStyle: "italic"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 15,
+        columnNumber: 11
+      }
+    }, "let"), " ", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "orange"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 16,
+        columnNumber: 11
+      }
+    }, "num"), " ", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "blue"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 17,
+        columnNumber: 11
+      }
+    }, "of"), " numbers", " ", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "blue"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 18,
+        columnNumber: 11
+      }
+    }, ")")), /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "blue"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 20,
+        columnNumber: 9
+      }
+    }, leftBracket), /*#__PURE__*/React.createElement("p", {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 21,
+        columnNumber: 9
+      }
+    }, "\xA0\xA0\xA0\xA0 ", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "purple"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 22,
+        columnNumber: 36
+      }
+    }, "if"), /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "blue"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 23,
+        columnNumber: 11
+      }
+    }, "("), /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "orange"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 24,
+        columnNumber: 11
+      }
+    }, "num"), " ", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "blue"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 25,
+        columnNumber: 11
+      }
+    }, "%"), " ", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "orange"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 26,
+        columnNumber: 11
+      }
+    }, "15"), " ", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "purple"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 27,
+        columnNumber: 11
+      }
+    }, "==="), " ", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "orange"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 28,
+        columnNumber: 11
+      }
+    }, "0"), " ", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "blue"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 29,
+        columnNumber: 11
+      }
+    }, ")"), /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "blue"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 30,
+        columnNumber: 11
+      }
+    }, leftBracket), /*#__PURE__*/React.createElement("p", {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 31,
+        columnNumber: 11
+      }
+    }), "\xA0\xA0\xA0\xA0", /*#__PURE__*/React.createElement("span", {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 33,
+        columnNumber: 11
+      }
+    }, " ", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "purple"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 35,
+        columnNumber: 13
+      }
+    }, "return"), " ", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "green"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 36,
+        columnNumber: 13
+      }
+    }, "\"fizzbuzz\""), " "), /*#__PURE__*/React.createElement("p", {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 38,
+        columnNumber: 11
+      }
+    }), "\xA0\xA0\xA0\xA0", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "blue"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 40,
+        columnNumber: 11
+      }
+    }, rightBracket), /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "purple"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 42,
+        columnNumber: 11
+      }
+    }, "\xA0else if "), /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "blue"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 43,
+        columnNumber: 11
+      }
+    }, "("), /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "orange"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 44,
+        columnNumber: 11
+      }
+    }, "num"), " ", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "blue"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 45,
+        columnNumber: 11
+      }
+    }, "%"), " ", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "orange"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 46,
+        columnNumber: 11
+      }
+    }, "3"), " ", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "purple"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 47,
+        columnNumber: 11
+      }
+    }, "==="), " ", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "orange"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 48,
+        columnNumber: 11
+      }
+    }, "0"), " ", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "blue"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 49,
+        columnNumber: 11
+      }
+    }, ")"), /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "blue"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 50,
+        columnNumber: 11
+      }
+    }, leftBracket), /*#__PURE__*/React.createElement("p", {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 51,
+        columnNumber: 11
+      }
+    }), "\xA0\xA0\xA0\xA0", /*#__PURE__*/React.createElement("span", {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 53,
+        columnNumber: 11
+      }
+    }, " ", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "purple"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 55,
+        columnNumber: 13
+      }
+    }, "return"), " ", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "green"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 56,
+        columnNumber: 13
+      }
+    }, "\"fizz\""), " "), /*#__PURE__*/React.createElement("p", {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 58,
+        columnNumber: 11
+      }
+    }), "\xA0\xA0\xA0\xA0", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "blue"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 60,
+        columnNumber: 11
+      }
+    }, rightBracket), /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "purple"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 63,
+        columnNumber: 11
+      }
+    }, "\xA0else if "), /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "blue"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 64,
+        columnNumber: 11
+      }
+    }, "("), /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "orange"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 65,
+        columnNumber: 11
+      }
+    }, "num"), " ", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "blue"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 66,
+        columnNumber: 11
+      }
+    }, "%"), " ", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "orange"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 67,
+        columnNumber: 11
+      }
+    }, "5"), " ", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "purple"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 68,
+        columnNumber: 11
+      }
+    }, "==="), " ", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "orange"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 69,
+        columnNumber: 11
+      }
+    }, "0"), " ", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "blue"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 70,
+        columnNumber: 11
+      }
+    }, ")"), /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "blue"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 71,
+        columnNumber: 11
+      }
+    }, leftBracket), /*#__PURE__*/React.createElement("p", {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 72,
+        columnNumber: 11
+      }
+    }), "\xA0\xA0\xA0\xA0", /*#__PURE__*/React.createElement("span", {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 74,
+        columnNumber: 11
+      }
+    }, " ", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "purple"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 76,
+        columnNumber: 13
+      }
+    }, "return"), " ", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "green"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 77,
+        columnNumber: 13
+      }
+    }, "\"buzz\""), " "), /*#__PURE__*/React.createElement("p", {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 79,
+        columnNumber: 11
+      }
+    }), "\xA0\xA0\xA0\xA0", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "blue"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 81,
+        columnNumber: 11
+      }
+    }, rightBracket), /*#__PURE__*/React.createElement("p", {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 83,
+        columnNumber: 11
+      }
+    }), /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "blue"
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 84,
+        columnNumber: 11
+      }
+    }, rightBracket))));
+  };
+
+  _c = CodeRepresentation;
+  var _default = CodeRepresentation;
+  exports.default = _default;
+
+  var _c;
+
+  $RefreshReg$(_c, "CodeRepresentation");
   helpers.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;

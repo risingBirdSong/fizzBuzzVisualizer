@@ -1,3 +1,8 @@
+main {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .buttons-container {
   display: grid;
   justify-content: center;
@@ -13,7 +18,8 @@
 
 .grid-container {
   display: grid;
-  justify-content: center;
+  justify-content: start;
+  width: fit-content;
   grid-template-columns: [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px;
   grid-template-rows: [row] auto [row]auto [row];
   background-color: #2196f3;
@@ -35,6 +41,17 @@
   font-size: 20px;
   text-align: center;
   height: 30px;
+}
+
+.codeblock {
+  display: flex;
+  justify-content: center;
+  align-self: flex-start;
+  margin-top: 7vh;
+}
+
+.code {
+  font-size: 25px;
 }
 
 /*# sourceMappingURL=style.bd1d8887.css.map */

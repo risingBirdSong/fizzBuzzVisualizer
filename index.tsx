@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import Buttons from "./components/buttons";
 import delayer from "./helpers";
 import fizzBuzzHandler from "./components/fizzbuzzHandler";
+import CodeRepresentation from "./components/codeRepresentation";
 
 // const React = require("react");
 // const ReactDOM = require("react-dom");
@@ -37,22 +38,27 @@ const App = () => {
   };
 
   return (
-    <div>
-      <Buttons
-        proppedFizzbuzz={fizzbuzz}
-        activeprop={active}
-        activeSetter={setActive}
-        clear={restart}
-        next={stepThrough}
-      />
-      <div className="grid-container">
-        {fizzArray.map((fizz) => {
-          {
-            return fizzBuzzHandler(fizz, current);
-          }
-        })}
+    <main>
+      <div className="fizzcenter">
+        <Buttons
+          proppedFizzbuzz={fizzbuzz}
+          activeprop={active}
+          activeSetter={setActive}
+          clear={restart}
+          next={stepThrough}
+        />
+        <div className="grid-container">
+          {fizzArray.map((fizz) => {
+            {
+              return fizzBuzzHandler(fizz, current);
+            }
+          })}
+        </div>
       </div>
-    </div>
+      <div className="codeblock">
+        <CodeRepresentation />
+      </div>
+    </main>
   );
 };
 
