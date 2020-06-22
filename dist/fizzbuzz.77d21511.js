@@ -29693,11 +29693,7 @@ try {
     let backgroundColor = "beige";
     let color = "white";
 
-    if (num === 0) {
-      value = 0;
-      backgroundColor = "burlywood";
-      color = "black";
-    } else if (num % 15 === 0) {
+    if (num % 15 === 0) {
       value = "fizz buzz";
       backgroundColor = "brown";
       color = "white";
@@ -29729,7 +29725,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 35,
+        lineNumber: 30,
         columnNumber: 5
       }
     }, /*#__PURE__*/React.createElement("div", {
@@ -29739,7 +29735,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 40,
+        lineNumber: 35,
         columnNumber: 7
       }
     }, value));
@@ -29970,7 +29966,7 @@ try {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"c3469d175e6ab91a6ebac2096f1b2459","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"304bfcdf97c182c258933a329c4fc1cd","./htmlHelper":"b231c4648225779bf4f6a486491c266a","./ifFizzbuzz":"510feb480da3d82c0382b818c2dff9e8","./ifFizz":"035f433b4c4085d45251910a7b5ac1f7","./ifBuzz":"f49680d18ac2806b7e97c36c0e383d17","./forLoop":"890cd8c170fe23db20f9b09ceb8fb9d3","./elseNumber":"fcf2546bc91ab347d3828e782e2b2e16"}],"b231c4648225779bf4f6a486491c266a":[function(require,module,exports) {
+},{"react":"c3469d175e6ab91a6ebac2096f1b2459","./htmlHelper":"b231c4648225779bf4f6a486491c266a","./ifFizzbuzz":"510feb480da3d82c0382b818c2dff9e8","./ifFizz":"035f433b4c4085d45251910a7b5ac1f7","./ifBuzz":"f49680d18ac2806b7e97c36c0e383d17","./forLoop":"890cd8c170fe23db20f9b09ceb8fb9d3","./elseNumber":"fcf2546bc91ab347d3828e782e2b2e16","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"304bfcdf97c182c258933a329c4fc1cd"}],"b231c4648225779bf4f6a486491c266a":[function(require,module,exports) {
 "use strict";
 
 var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
@@ -30224,7 +30220,7 @@ try {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"c3469d175e6ab91a6ebac2096f1b2459","./htmlHelper":"b231c4648225779bf4f6a486491c266a","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"304bfcdf97c182c258933a329c4fc1cd","../fizzEnum":"95cd7f9c7a66b7e0a5f1d54d6529141b"}],"95cd7f9c7a66b7e0a5f1d54d6529141b":[function(require,module,exports) {
+},{"react":"c3469d175e6ab91a6ebac2096f1b2459","./htmlHelper":"b231c4648225779bf4f6a486491c266a","../fizzEnum":"95cd7f9c7a66b7e0a5f1d54d6529141b","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"304bfcdf97c182c258933a329c4fc1cd"}],"95cd7f9c7a66b7e0a5f1d54d6529141b":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30454,7 +30450,7 @@ try {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"c3469d175e6ab91a6ebac2096f1b2459","./htmlHelper":"b231c4648225779bf4f6a486491c266a","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"304bfcdf97c182c258933a329c4fc1cd","../fizzEnum":"95cd7f9c7a66b7e0a5f1d54d6529141b"}],"f49680d18ac2806b7e97c36c0e383d17":[function(require,module,exports) {
+},{"react":"c3469d175e6ab91a6ebac2096f1b2459","../fizzEnum":"95cd7f9c7a66b7e0a5f1d54d6529141b","./htmlHelper":"b231c4648225779bf4f6a486491c266a","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"304bfcdf97c182c258933a329c4fc1cd"}],"f49680d18ac2806b7e97c36c0e383d17":[function(require,module,exports) {
 "use strict";
 
 var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
@@ -30666,7 +30662,7 @@ try {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"c3469d175e6ab91a6ebac2096f1b2459","./htmlHelper":"b231c4648225779bf4f6a486491c266a","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"304bfcdf97c182c258933a329c4fc1cd","../fizzEnum":"95cd7f9c7a66b7e0a5f1d54d6529141b"}],"890cd8c170fe23db20f9b09ceb8fb9d3":[function(require,module,exports) {
+},{"react":"c3469d175e6ab91a6ebac2096f1b2459","../fizzEnum":"95cd7f9c7a66b7e0a5f1d54d6529141b","./htmlHelper":"b231c4648225779bf4f6a486491c266a","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"304bfcdf97c182c258933a329c4fc1cd"}],"890cd8c170fe23db20f9b09ceb8fb9d3":[function(require,module,exports) {
 "use strict";
 
 var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");

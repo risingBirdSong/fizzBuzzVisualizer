@@ -4,12 +4,7 @@ const FizzBuzzLogic = (num: number, current?: boolean) => {
   let value: string | number = num;
   let backgroundColor: string = "beige";
   let color: string = "white";
-
-  if (num === 0) {
-    value = 0;
-    backgroundColor = "burlywood";
-    color = "black";
-  } else if (num % 15 === 0) {
+  if (num % 15 === 0) {
     value = "fizz buzz";
     backgroundColor = "brown";
     color = "white";
