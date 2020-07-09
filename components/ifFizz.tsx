@@ -19,7 +19,7 @@ const IfFizz = (props: { status: FizzStatus }) => {
       <Tab />
       <span>
         {" "}
-        <Tab></Tab> <span className="control">return</span>{" "}
+        <Tab></Tab> <span className="control">print</span>{" "}
         <span className="string">"fizz"</span>{" "}
       </span>
       <p></p>

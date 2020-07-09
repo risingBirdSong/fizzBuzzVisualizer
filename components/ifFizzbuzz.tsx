@@ -5,7 +5,9 @@ import FizzStatus from "../fizzEnum";
 const IfFizzBuzz = (props: { status: FizzStatus }) => {
   return (
     <div
-      className={props.status === FizzStatus["fizzbuzz"] ? "fizzBuzzStatus" : ""}
+      className={
+        props.status === FizzStatus["fizzbuzz"] ? "fizzBuzzStatus" : ""
+      }
     >
       <Tab /> <span className="control"> if </span>
       <span className="structure">(</span>
@@ -19,7 +21,7 @@ const IfFizzBuzz = (props: { status: FizzStatus }) => {
       <Tab />
       <span>
         {" "}
-        <Tab></Tab> <span className="control">return</span>{" "}
+        <Tab></Tab> <span className="control">print</span>{" "}
         <span className="string">"fizzbuzz"</span>{" "}
       </span>
       <p></p>

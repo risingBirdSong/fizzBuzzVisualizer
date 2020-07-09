@@ -12,7 +12,7 @@ const ElseNumber = (props: { status: FizzStatus }) => {
       <p></p>
       <span>
         {" "}
-        <Tab /> <span className="control"> return</span>{" "}
+        <Tab /> <span className="control"> print</span>{" "}
         <span className="values">num</span>{" "}
       </span>
     </div>
