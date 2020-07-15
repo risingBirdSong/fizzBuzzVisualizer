@@ -1,6 +1,9 @@
 main {
-  display: flex;
-  justify-content: space-evenly;
+  /* display: flex;
+  justify-content: space-evenly; */
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
 }
 
 .buttons-container {
@@ -23,7 +26,7 @@ main {
   /* grid-template-columns: [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px; */
   /* grid-template-columns: repeat(11, 70px); */
   grid-template-columns: repeat(11, minmax(40px, 100px));
-  /* grid-template-rows: repeat(11, auto); */
+  grid-template-rows: repeat(auto-fit);
   grid-template-rows: [row] auto [row]auto [row];
   background-color: #2196f3;
   padding: 10px;
