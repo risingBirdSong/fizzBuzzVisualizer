@@ -1033,7 +1033,7 @@ try {
     // the fix was adding to package.json the config for browserslist -> last 1 Chrome version
 
     function fizzbuzz(delayAmount) {
-      setTimeout(() => {
+      let delaying = setTimeout(() => {
         if (count <= 100) {
           count++;
           setCurrent(count);
@@ -1076,7 +1076,9 @@ try {
         columnNumber: 7
       }
     }, /*#__PURE__*/React.createElement(_buttons.default, {
-      proppedFizzbuzz: fizzbuzz,
+      proppedFizzbuzz: () => {
+        fizzbuzz(300);
+      },
       activeprop: active,
       activeSetter: setActive,
       clear: restart,
@@ -1092,7 +1094,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 60,
+        lineNumber: 62,
         columnNumber: 9
       }
     }, fizzArray.map(fizz => {
@@ -1104,7 +1106,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 68,
+        lineNumber: 70,
         columnNumber: 7
       }
     }, /*#__PURE__*/React.createElement(_codeRepresentation.default, {
@@ -1113,7 +1115,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 69,
+        lineNumber: 71,
         columnNumber: 9
       }
     })));
@@ -1127,7 +1129,7 @@ try {
     __self: void 0,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 75,
+      lineNumber: 77,
       columnNumber: 17
     }
   }), document.getElementById("root"));

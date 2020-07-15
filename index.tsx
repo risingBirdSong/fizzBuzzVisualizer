@@ -21,7 +21,7 @@ const App = () => {
   //apparently parcel is calling babel for using async await but it's not needed because typescript provides its own
   // the fix was adding to package.json the config for browserslist -> last 1 Chrome version
   function fizzbuzz(delayAmount: number) {
-    setTimeout(() => {
+    let delaying = setTimeout(() => {
       if (count <= 100) {
         count++;
         setCurrent(count);
@@ -51,7 +51,9 @@ const App = () => {
     <main>
       <div className="fizzcenter">
         <Buttons
-          proppedFizzbuzz={fizzbuzz}
+          proppedFizzbuzz={() => {
+            fizzbuzz(300);
+          }}
           activeprop={active}
           activeSetter={setActive}
           clear={restart}
