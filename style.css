@@ -1,6 +1,17 @@
 main {
-  display: flex;
-  justify-content: space-evenly;
+  /* display: flex;
+  justify-content: space-evenly; */
+  margin-top: -80px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(530px, 1fr));
+  margin-left: 100px;
+}
+
+svg {
+  width: 100%;
+  height: auto;
 }
 
 .buttons-container {
@@ -21,34 +32,42 @@ main {
   justify-content: start;
   width: auto;
   /* grid-template-columns: [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px; */
-  grid-template-columns: repeat(11, 70px);
+  /* grid-template-columns: repeat(11, 70px); */
+  grid-template-columns: repeat(11, minmax(40px, 100px));
+  grid-template-rows: repeat(auto-fit);
   grid-template-rows: [row] auto [row]auto [row];
   background-color: #2196f3;
-  padding: 10px;
+  padding: 1em;
+  margin-left: 2em;
 }
 .grid-item {
   background-color: burlywood;
   border: 1px solid gold;
-  padding: 20px;
+  display: grid;
+  place-items: center;
+  /* padding: 20px; */
+  padding: 1rem;
   font-size: 20px;
-  text-align: center;
+  /* text-align: center; */
   height: 30px;
   /* color: maroon; */
 }
 
 .grid-item-current {
   border: 1px solid darkgoldenrod;
-  padding: 20px;
+  display: grid;
+  justify-content: center;
+  padding: 1rem;
   font-size: 20px;
-  text-align: center;
   height: 30px;
 }
 
 .codeblock {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-self: flex-start;
-  margin-top: 7vh;
+  margin-top: 12vh;
+  padding: 2em;
 }
 
 .code {
