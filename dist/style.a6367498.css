@@ -19,8 +19,9 @@ main {
 .grid-container {
   display: grid;
   justify-content: start;
-  width: fit-content;
-  grid-template-columns: [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px;
+  width: auto;
+  /* grid-template-columns: [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px [col] 70px; */
+  grid-template-columns: repeat(11, 70px);
   grid-template-rows: [row] auto [row]auto [row];
   background-color: #2196f3;
   padding: 10px;

@@ -710,10 +710,10 @@ if ("development" !== "production") {
     module.exports = runtime;
   })();
 }
-},{}],"db27998e4544839660d6f3039c691759":[function(require,module,exports) {
+},{}],"3c18903a13aabc3ffe73fdf046d8884a":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
-var HMR_PORT = 55805;
+var HMR_PORT = 1234;
 var HMR_ENV_HASH = "d751713988987e9331980363e24189ce";
 module.bundle.HMR_BUNDLE_ID = "e28c2ae5fa168d8fb3774b95b31f3bde";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH */
@@ -30863,6 +30863,6 @@ try {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"c3469d175e6ab91a6ebac2096f1b2459","../fizzEnum":"95cd7f9c7a66b7e0a5f1d54d6529141b","./htmlHelper":"b231c4648225779bf4f6a486491c266a","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"304bfcdf97c182c258933a329c4fc1cd"}]},{},["64c1770b35b04eb343009bb27a752262","db27998e4544839660d6f3039c691759","086e796d0dcbbcf0f3938fe09be3a5b7"], null)
+},{"react":"c3469d175e6ab91a6ebac2096f1b2459","../fizzEnum":"95cd7f9c7a66b7e0a5f1d54d6529141b","./htmlHelper":"b231c4648225779bf4f6a486491c266a","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"304bfcdf97c182c258933a329c4fc1cd"}]},{},["64c1770b35b04eb343009bb27a752262","3c18903a13aabc3ffe73fdf046d8884a","086e796d0dcbbcf0f3938fe09be3a5b7"], null)
 
 //# sourceMappingURL=fizzbuzz.e28c2ae5.js.map
