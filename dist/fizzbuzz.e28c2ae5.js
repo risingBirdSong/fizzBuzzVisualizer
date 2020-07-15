@@ -1002,8 +1002,6 @@ try {
 
   var _buttons = _interopRequireDefault(require("./components/buttons"));
 
-  var _helpers = _interopRequireDefault(require("./helpers"));
-
   var _fizzbuzzHandler = _interopRequireDefault(require("./components/fizzbuzzHandler"));
 
   var _codeRepresentation = _interopRequireDefault(require("./components/codeRepresentation"));
@@ -1029,20 +1027,28 @@ try {
     const [current, setCurrent] = React.useState(-1);
     const [fizzArray, setNumbers] = React.useState(initialNumbers);
     const [step, nextStep] = React.useState(-1);
-    let [active, setActive] = React.useState(false); //https://github.com/parcel-bundler/parcel/issues/954
+    let [active, setActive] = React.useState(false);
+    let count = 0; //https://github.com/parcel-bundler/parcel/issues/954
     //apparently parcel is calling babel for using async await but it's not needed because typescript provides its own
     // the fix was adding to package.json the config for browserslist -> last 1 Chrome version
 
-    async function fizzbuzz(delayAmount) {
-      for (let num of fizzArray) {
-        await (0, _helpers.default)(delayAmount);
-        setCurrent(num);
-      }
-
-      setActive(false);
+    function fizzbuzz(delayAmount) {
+      setTimeout(() => {
+        if (count <= 100) {
+          count++;
+          setCurrent(count);
+          fizzbuzz(delayAmount);
+        } else {
+          count = 0;
+          setActive(false);
+        }
+      }, delayAmount);
     }
 
     const restart = () => {
+      console.log("requesting reset");
+      count = 0;
+      nextStep(-1);
       setCurrent(-1);
       setNumbers([...Array(length).keys()]);
     };
@@ -1058,7 +1064,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 42,
+        lineNumber: 51,
         columnNumber: 5
       }
     }, /*#__PURE__*/React.createElement("div", {
@@ -1066,7 +1072,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 43,
+        lineNumber: 52,
         columnNumber: 7
       }
     }, /*#__PURE__*/React.createElement(_buttons.default, {
@@ -1078,7 +1084,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 44,
+        lineNumber: 53,
         columnNumber: 9
       }
     }), /*#__PURE__*/React.createElement("div", {
@@ -1086,7 +1092,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 51,
+        lineNumber: 60,
         columnNumber: 9
       }
     }, fizzArray.map(fizz => {
@@ -1098,7 +1104,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 59,
+        lineNumber: 68,
         columnNumber: 7
       }
     }, /*#__PURE__*/React.createElement(_codeRepresentation.default, {
@@ -1107,7 +1113,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 60,
+        lineNumber: 69,
         columnNumber: 9
       }
     })));
@@ -1121,7 +1127,7 @@ try {
     __self: void 0,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66,
+      lineNumber: 75,
       columnNumber: 17
     }
   }), document.getElementById("root"));
@@ -1134,7 +1140,7 @@ try {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"c3469d175e6ab91a6ebac2096f1b2459","react-dom":"651fc26ccddec1886b73afbdef9f97ee","./components/buttons":"760a8efc47a64954852797b29341b87f","./helpers":"00c65e00621bb5b0919a76c7a239381e","./components/fizzbuzzHandler":"6188d1c225d2ee4ae321c81c23f5d1f9","./components/codeRepresentation":"57bc00d94c7f0109571a092fc1f1287a","./fizzHelper":"3d8acad69d5b940c3c14a2657f2218d5","./node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"304bfcdf97c182c258933a329c4fc1cd"}],"c3469d175e6ab91a6ebac2096f1b2459":[function(require,module,exports) {
+},{"react":"c3469d175e6ab91a6ebac2096f1b2459","react-dom":"651fc26ccddec1886b73afbdef9f97ee","./components/buttons":"760a8efc47a64954852797b29341b87f","./components/fizzbuzzHandler":"6188d1c225d2ee4ae321c81c23f5d1f9","./components/codeRepresentation":"57bc00d94c7f0109571a092fc1f1287a","./fizzHelper":"3d8acad69d5b940c3c14a2657f2218d5","./node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"304bfcdf97c182c258933a329c4fc1cd"}],"c3469d175e6ab91a6ebac2096f1b2459":[function(require,module,exports) {
 'use strict';
 
 if ("development" === 'production') {
@@ -29587,26 +29593,7 @@ function registerExportsForReactRefresh(module) {
     Refresh.register(exportValue, id + ' %exports% ' + key);
   }
 }
-},{"react-refresh/runtime":"6a2f65278353e882d7f14bcf674e0c85"}],"00c65e00621bb5b0919a76c7a239381e":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-const delayer = ms => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve();
-    }, ms);
-  });
-}; // export { delayer };
-
-
-var _default = delayer;
-exports.default = _default;
-},{}],"6188d1c225d2ee4ae321c81c23f5d1f9":[function(require,module,exports) {
+},{"react-refresh/runtime":"6a2f65278353e882d7f14bcf674e0c85"}],"6188d1c225d2ee4ae321c81c23f5d1f9":[function(require,module,exports) {
 "use strict";
 
 var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
