@@ -17,17 +17,18 @@ const App = () => {
   const [step, nextStep] = React.useState<number>(-1);
   let [active, setActive] = React.useState(false);
   let count = 0;
+  let stopFizzBuzz = false;
   //https://github.com/parcel-bundler/parcel/issues/954
   //apparently parcel is calling babel for using async await but it's not needed because typescript provides its own
   // the fix was adding to package.json the config for browserslist -> last 1 Chrome version
-  function fizzbuzz(delayAmount: number, stop?: "stop") {
-    console.log("still running", arguments);
-    let delaying = setTimeout(() => {
-      if (stop) {
-        console.log("initial stop");
-        clearTimeout(delaying);
-        return;
-      }
+  function fizzbuzz(delayAmount: number, stop?: "stop" | "stopping") {
+    let delaying;
+    if (stopFizzBuzz === true) {
+      console.log("were trying to stop");
+      clearTimeout(delaying);
+      return;
+    }
+    delaying = setTimeout(() => {
       if (count <= 100 && !stop) {
         count++;
         setCurrent(count);
@@ -41,7 +42,7 @@ const App = () => {
 
   const restart = () => {
     console.log("requesting reset");
-    fizzbuzz(0, "stop");
+    stopFizzBuzz = true;
     count = 0;
     nextStep(-1);
     setCurrent(-1);

@@ -1028,19 +1028,21 @@ try {
     const [fizzArray, setNumbers] = React.useState(initialNumbers);
     const [step, nextStep] = React.useState(-1);
     let [active, setActive] = React.useState(false);
-    let count = 0; //https://github.com/parcel-bundler/parcel/issues/954
+    let count = 0;
+    let stopFizzBuzz = false; //https://github.com/parcel-bundler/parcel/issues/954
     //apparently parcel is calling babel for using async await but it's not needed because typescript provides its own
     // the fix was adding to package.json the config for browserslist -> last 1 Chrome version
 
     function fizzbuzz(delayAmount, stop) {
-      console.log("still running", arguments);
-      let delaying = setTimeout(() => {
-        if (stop) {
-          console.log("initial stop");
-          clearTimeout(delaying);
-          return;
-        }
+      let delaying;
 
+      if (stopFizzBuzz === true) {
+        console.log("were trying to stop");
+        clearTimeout(delaying);
+        return;
+      }
+
+      delaying = setTimeout(() => {
         if (count <= 100 && !stop) {
           count++;
           setCurrent(count);
@@ -1054,7 +1056,7 @@ try {
 
     const restart = () => {
       console.log("requesting reset");
-      fizzbuzz(0, "stop");
+      stopFizzBuzz = true;
       count = 0;
       nextStep(-1);
       setCurrent(-1);
@@ -1072,7 +1074,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 58,
+        lineNumber: 59,
         columnNumber: 5
       }
     }, /*#__PURE__*/React.createElement("div", {
@@ -1080,7 +1082,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 59,
+        lineNumber: 60,
         columnNumber: 7
       }
     }, /*#__PURE__*/React.createElement(_buttons.default, {
@@ -1094,7 +1096,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 60,
+        lineNumber: 61,
         columnNumber: 9
       }
     }), /*#__PURE__*/React.createElement("div", {
@@ -1102,7 +1104,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 69,
+        lineNumber: 70,
         columnNumber: 9
       }
     }, fizzArray.map(fizz => {
@@ -1114,7 +1116,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 77,
+        lineNumber: 78,
         columnNumber: 7
       }
     }, /*#__PURE__*/React.createElement(_codeRepresentation.default, {
@@ -1123,7 +1125,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 78,
+        lineNumber: 79,
         columnNumber: 9
       }
     })));
@@ -1137,7 +1139,7 @@ try {
     __self: void 0,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 84,
+      lineNumber: 85,
       columnNumber: 17
     }
   }), document.getElementById("root"));
