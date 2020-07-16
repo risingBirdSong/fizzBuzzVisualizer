@@ -28,8 +28,8 @@ const App = () => {
   const [current, setCurrent] = React.useState(-2);
   const [fizzArray, setNumbers] = React.useState<number[]>(initialNumbers);
   // const [step, nextStep] = React.useState<number>(-2);
-  let [active, setActive] = React.useState(false);
-  let [count] = React.useState(0);
+  const [active, setActive] = React.useState(false);
+  const [speed, setSpeed] = React.useState(0);
   //https://github.com/parcel-bundler/parcel/issues/954
   //apparently parcel is calling babel for using async await but it's not needed because typescript provides its own
   // the fix was adding to package.json the config for browserslist -> last 1 Chrome version
@@ -56,7 +56,7 @@ const App = () => {
     const timer = setTimeout(() => {
       let next = current + 1;
       setCurrent(next);
-    }, 300);
+    }, speed);
     return () => clearTimeout(timer);
     /** this i tried out of experimentation and i was pleased to see it works...
      * my understanding of how it works is that it will fire once on componenet mount,
@@ -84,8 +84,8 @@ const App = () => {
     <main>
       <div className="fizzcenter">
         <Buttons
-          beginAutomaticProp={() => {
-            // console.log("num from Buttons", num);
+          beginAutomaticProp={(num: number) => {
+            setSpeed(num);
             setActive(true);
             setCurrent(0);
           }}

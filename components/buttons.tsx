@@ -14,7 +14,7 @@ const Buttons = (props: fizzBuzzHandler): JSX.Element => {
       <button
         onClick={() => {
           if (!props.activeprop) {
-            props.beginAutomaticProp(600);
+            props.beginAutomaticProp(400);
           }
         }}
       >
@@ -23,7 +23,7 @@ const Buttons = (props: fizzBuzzHandler): JSX.Element => {
       <button
         onClick={() => {
           if (!props.activeprop) {
-            props.beginAutomaticProp(200);
+            props.beginAutomaticProp(150);
           }
         }}
       >

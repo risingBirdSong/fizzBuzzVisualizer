@@ -1027,8 +1027,8 @@ try {
     const [current, setCurrent] = React.useState(-2);
     const [fizzArray, setNumbers] = React.useState(initialNumbers); // const [step, nextStep] = React.useState<number>(-2);
 
-    let [active, setActive] = React.useState(false);
-    let [count] = React.useState(0); //https://github.com/parcel-bundler/parcel/issues/954
+    const [active, setActive] = React.useState(false);
+    const [speed, setSpeed] = React.useState(0); //https://github.com/parcel-bundler/parcel/issues/954
     //apparently parcel is calling babel for using async await but it's not needed because typescript provides its own
     // the fix was adding to package.json the config for browserslist -> last 1 Chrome version
     // function fizzbuzz(delayAmount: number) {
@@ -1054,7 +1054,7 @@ try {
       const timer = setTimeout(() => {
         let next = current + 1;
         setCurrent(next);
-      }, 300);
+      }, speed);
       return () => clearTimeout(timer);
       /** this i tried out of experimentation and i was pleased to see it works...
        * my understanding of how it works is that it will fire once on componenet mount,
@@ -1095,8 +1095,8 @@ try {
         columnNumber: 7
       }
     }, /*#__PURE__*/React.createElement(_buttons.default, {
-      beginAutomaticProp: () => {
-        // console.log("num from Buttons", num);
+      beginAutomaticProp: num => {
+        setSpeed(num);
         setActive(true);
         setCurrent(0);
       },
@@ -1141,7 +1141,7 @@ try {
     })));
   };
 
-  _s(App, "W1fjoTeUlZCFIctMfY7krmWcFYE=");
+  _s(App, "AJ6l6LRK7e722ApMHh7dSz/dCWY=");
 
   _c = App;
 
@@ -29367,7 +29367,7 @@ try {
     }, /*#__PURE__*/React.createElement("button", {
       onClick: () => {
         if (!props.activeprop) {
-          props.beginAutomaticProp(600);
+          props.beginAutomaticProp(400);
         }
       },
       __self: void 0,
@@ -29379,7 +29379,7 @@ try {
     }, "fizzbuzz slowly"), /*#__PURE__*/React.createElement("button", {
       onClick: () => {
         if (!props.activeprop) {
-          props.beginAutomaticProp(200);
+          props.beginAutomaticProp(150);
         }
       },
       __self: void 0,
