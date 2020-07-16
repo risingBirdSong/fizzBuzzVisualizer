@@ -43,9 +43,7 @@ const Buttons = (props: fizzBuzzHandler): JSX.Element => {
       </button>
       <button
         onClick={() => {
-          if (!props.activeprop) {
-            props.clear();
-          }
+          props.clear();
         }}
       >
         clear

@@ -20,9 +20,15 @@ const App = () => {
   //https://github.com/parcel-bundler/parcel/issues/954
   //apparently parcel is calling babel for using async await but it's not needed because typescript provides its own
   // the fix was adding to package.json the config for browserslist -> last 1 Chrome version
-  function fizzbuzz(delayAmount: number) {
+  function fizzbuzz(delayAmount: number, stop?: "stop") {
+    console.log("still running", arguments);
     let delaying = setTimeout(() => {
-      if (count <= 100) {
+      if (stop) {
+        console.log("initial stop");
+        clearTimeout(delaying);
+        return;
+      }
+      if (count <= 100 && !stop) {
         count++;
         setCurrent(count);
         fizzbuzz(delayAmount);
@@ -35,6 +41,7 @@ const App = () => {
 
   const restart = () => {
     console.log("requesting reset");
+    fizzbuzz(0, "stop");
     count = 0;
     nextStep(-1);
     setCurrent(-1);
@@ -59,6 +66,13 @@ const App = () => {
           clear={restart}
           next={stepThrough}
         />
+        <button
+          onClick={() => {
+            console.log("test of blocking");
+          }}
+        >
+          test
+        </button>
         <div className="grid-container">
           {fizzArray.map((fizz) => {
             {

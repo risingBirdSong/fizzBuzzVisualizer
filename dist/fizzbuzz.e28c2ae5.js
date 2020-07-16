@@ -1032,9 +1032,16 @@ try {
     //apparently parcel is calling babel for using async await but it's not needed because typescript provides its own
     // the fix was adding to package.json the config for browserslist -> last 1 Chrome version
 
-    function fizzbuzz(delayAmount) {
+    function fizzbuzz(delayAmount, stop) {
+      console.log("still running", arguments);
       let delaying = setTimeout(() => {
-        if (count <= 100) {
+        if (stop) {
+          console.log("initial stop");
+          clearTimeout(delaying);
+          return;
+        }
+
+        if (count <= 100 && !stop) {
           count++;
           setCurrent(count);
           fizzbuzz(delayAmount);
@@ -1047,6 +1054,7 @@ try {
 
     const restart = () => {
       console.log("requesting reset");
+      fizzbuzz(0, "stop");
       count = 0;
       nextStep(-1);
       setCurrent(-1);
@@ -1064,7 +1072,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 51,
+        lineNumber: 58,
         columnNumber: 5
       }
     }, /*#__PURE__*/React.createElement("div", {
@@ -1072,7 +1080,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 52,
+        lineNumber: 59,
         columnNumber: 7
       }
     }, /*#__PURE__*/React.createElement(_buttons.default, {
@@ -1086,15 +1094,25 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 53,
+        lineNumber: 60,
         columnNumber: 9
       }
-    }), /*#__PURE__*/React.createElement("div", {
+    }), /*#__PURE__*/React.createElement("button", {
+      onClick: () => {
+        console.log("test of blocking");
+      },
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 69,
+        columnNumber: 9
+      }
+    }, "test"), /*#__PURE__*/React.createElement("div", {
       className: "grid-container",
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 62,
+        lineNumber: 76,
         columnNumber: 9
       }
     }, fizzArray.map(fizz => {
@@ -1106,7 +1124,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 70,
+        lineNumber: 84,
         columnNumber: 7
       }
     }, /*#__PURE__*/React.createElement(_codeRepresentation.default, {
@@ -1115,7 +1133,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 71,
+        lineNumber: 85,
         columnNumber: 9
       }
     })));
@@ -1129,7 +1147,7 @@ try {
     __self: void 0,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 77,
+      lineNumber: 91,
       columnNumber: 17
     }
   }), document.getElementById("root"));
@@ -29380,9 +29398,7 @@ try {
       }
     }, "step through"), /*#__PURE__*/React.createElement("button", {
       onClick: () => {
-        if (!props.activeprop) {
-          props.clear();
-        }
+        props.clear();
       },
       __self: void 0,
       __source: {
