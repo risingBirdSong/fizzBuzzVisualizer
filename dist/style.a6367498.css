@@ -9,6 +9,15 @@ main {
   margin-left: 100px;
 }
 
+/* @media (max-width: 1000px) {
+  main {
+    background-color: red;
+  }
+  * {
+    color: green;
+  }
+} */
+
 svg {
   width: 100%;
   height: auto;
@@ -18,8 +27,7 @@ svg {
   display: grid;
   justify-content: center;
   grid-template-columns: auto auto;
-  padding: 10px;
-  margin: 10px;
+  margin-top: 10vh;
 }
 
 .buttons-container button {
@@ -66,12 +74,12 @@ svg {
   display: flex;
   justify-content: start;
   align-self: flex-start;
-  margin-top: 12vh;
   padding: 2em;
 }
 
 .code {
   font-size: 25px;
+  margin-top: 24vh;
 }
 
 .control {

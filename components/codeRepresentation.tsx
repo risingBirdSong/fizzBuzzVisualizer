@@ -26,14 +26,14 @@ const CodeRepresentation = (props: CodeRepProps) => {
       <pre>
         <ForLoop/>
          <p> <Tab/> log(<span className="values">num</span>) <span className="currentNum">{props.currentNum}</span></p>
-        <p>
+        <div>
          <IfFizzBuzz status={props.fizzStatus}/>
          <IfFizz status={props.fizzStatus}></IfFizz>
          <IfBuzz status={props.fizzStatus}></IfBuzz>
          <ElseNumber status={props.fizzStatus}/>
          <p></p>
       <span className="structure">{rightBracket}</span>
-        </p>
+        </div>
       </pre>
     </div>
   );
