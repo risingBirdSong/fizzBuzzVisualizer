@@ -9,14 +9,14 @@ main {
   margin-left: 100px;
 }
 
-/* @media (max-width: 1000px) {
-  main {
-    background-color: red;
+@media (max-width: 1190px) {
+  /* .buttons-container {
+    margin-top: 10vh;
+  } */
+  .fizzcenter {
+    margin-top: 12vh;
   }
-  * {
-    color: green;
-  }
-} */
+}
 
 svg {
   width: 100%;
@@ -27,7 +27,7 @@ svg {
   display: grid;
   justify-content: center;
   grid-template-columns: auto auto;
-  margin-top: 10vh;
+  margin: 1em;
 }
 
 .buttons-container button {
@@ -79,7 +79,7 @@ svg {
 
 .code {
   font-size: 25px;
-  margin-top: 24vh;
+  margin-top: 10vh;
 }
 
 .control {
