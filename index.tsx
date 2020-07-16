@@ -66,13 +66,6 @@ const App = () => {
           clear={restart}
           next={stepThrough}
         />
-        <button
-          onClick={() => {
-            console.log("test of blocking");
-          }}
-        >
-          test
-        </button>
         <div className="grid-container">
           {fizzArray.map((fizz) => {
             {

@@ -1097,22 +1097,12 @@ try {
         lineNumber: 60,
         columnNumber: 9
       }
-    }), /*#__PURE__*/React.createElement("button", {
-      onClick: () => {
-        console.log("test of blocking");
-      },
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 69,
-        columnNumber: 9
-      }
-    }, "test"), /*#__PURE__*/React.createElement("div", {
+    }), /*#__PURE__*/React.createElement("div", {
       className: "grid-container",
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 76,
+        lineNumber: 69,
         columnNumber: 9
       }
     }, fizzArray.map(fizz => {
@@ -1124,7 +1114,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 84,
+        lineNumber: 77,
         columnNumber: 7
       }
     }, /*#__PURE__*/React.createElement(_codeRepresentation.default, {
@@ -1133,7 +1123,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 85,
+        lineNumber: 78,
         columnNumber: 9
       }
     })));
@@ -1147,7 +1137,7 @@ try {
     __self: void 0,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 91,
+      lineNumber: 84,
       columnNumber: 17
     }
   }), document.getElementById("root"));
