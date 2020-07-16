@@ -16,8 +16,8 @@ const App = () => {
   const [fizzArray, setNumbers] = React.useState<number[]>(initialNumbers);
   const [step, nextStep] = React.useState<number>(-1);
   let [active, setActive] = React.useState(false);
-  let count = 0;
-  let stopFizzBuzz = false;
+  let [count, setCount] = React.useState(0);
+  let [stopFizzBuzz, setStopFizzBuzz] = React.useState<boolean>(false);
   //https://github.com/parcel-bundler/parcel/issues/954
   //apparently parcel is calling babel for using async await but it's not needed because typescript provides its own
   // the fix was adding to package.json the config for browserslist -> last 1 Chrome version
@@ -30,11 +30,11 @@ const App = () => {
     }
     delaying = setTimeout(() => {
       if (count <= 100 && !stop) {
-        count++;
+        setCount(++count);
         setCurrent(count);
         fizzbuzz(delayAmount);
       } else {
-        count = 0;
+        setCount(0);
         setActive(false);
       }
     }, delayAmount);
@@ -42,8 +42,8 @@ const App = () => {
 
   const restart = () => {
     console.log("requesting reset");
-    stopFizzBuzz = true;
-    count = 0;
+    setStopFizzBuzz(true);
+    setCount(0);
     nextStep(-1);
     setCurrent(-1);
     setNumbers([...Array(length).keys()]);
@@ -67,6 +67,14 @@ const App = () => {
           clear={restart}
           next={stepThrough}
         />
+        <button
+          onClick={() => {
+            setStopFizzBuzz(!stopFizzBuzz);
+            console.log(stopFizzBuzz);
+          }}
+        >
+          <p>test : {String(stopFizzBuzz)}</p>
+        </button>
         <div className="grid-container">
           {fizzArray.map((fizz) => {
             {

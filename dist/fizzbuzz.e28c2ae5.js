@@ -1028,8 +1028,8 @@ try {
     const [fizzArray, setNumbers] = React.useState(initialNumbers);
     const [step, nextStep] = React.useState(-1);
     let [active, setActive] = React.useState(false);
-    let count = 0;
-    let stopFizzBuzz = false; //https://github.com/parcel-bundler/parcel/issues/954
+    let [count, setCount] = React.useState(0);
+    let [stopFizzBuzz, setStopFizzBuzz] = React.useState(false); //https://github.com/parcel-bundler/parcel/issues/954
     //apparently parcel is calling babel for using async await but it's not needed because typescript provides its own
     // the fix was adding to package.json the config for browserslist -> last 1 Chrome version
 
@@ -1044,11 +1044,11 @@ try {
 
       delaying = setTimeout(() => {
         if (count <= 100 && !stop) {
-          count++;
+          setCount(++count);
           setCurrent(count);
           fizzbuzz(delayAmount);
         } else {
-          count = 0;
+          setCount(0);
           setActive(false);
         }
       }, delayAmount);
@@ -1056,8 +1056,8 @@ try {
 
     const restart = () => {
       console.log("requesting reset");
-      stopFizzBuzz = true;
-      count = 0;
+      setStopFizzBuzz(true);
+      setCount(0);
       nextStep(-1);
       setCurrent(-1);
       setNumbers([...Array(length).keys()]);
@@ -1099,12 +1099,30 @@ try {
         lineNumber: 61,
         columnNumber: 9
       }
-    }), /*#__PURE__*/React.createElement("div", {
-      className: "grid-container",
+    }), /*#__PURE__*/React.createElement("button", {
+      onClick: () => {
+        setStopFizzBuzz(!stopFizzBuzz);
+        console.log(stopFizzBuzz);
+      },
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 70,
+        columnNumber: 9
+      }
+    }, /*#__PURE__*/React.createElement("p", {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 76,
+        columnNumber: 11
+      }
+    }, "test : ", String(stopFizzBuzz))), /*#__PURE__*/React.createElement("div", {
+      className: "grid-container",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 78,
         columnNumber: 9
       }
     }, fizzArray.map(fizz => {
@@ -1116,7 +1134,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 78,
+        lineNumber: 86,
         columnNumber: 7
       }
     }, /*#__PURE__*/React.createElement(_codeRepresentation.default, {
@@ -1125,13 +1143,13 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 79,
+        lineNumber: 87,
         columnNumber: 9
       }
     })));
   };
 
-  _s(App, "H7C664Iv9qilm9Z1socnjAoXYbo=");
+  _s(App, "FPvj+jNnewYBlIUH8qq1HZu3kwQ=");
 
   _c = App;
 
@@ -1139,7 +1157,7 @@ try {
     __self: void 0,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 85,
+      lineNumber: 93,
       columnNumber: 17
     }
   }), document.getElementById("root"));
