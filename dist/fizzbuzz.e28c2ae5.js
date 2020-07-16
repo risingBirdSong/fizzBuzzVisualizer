@@ -1102,7 +1102,6 @@ try {
     }), /*#__PURE__*/React.createElement("button", {
       onClick: () => {
         setStopFizzBuzz(!stopFizzBuzz);
-        console.log(stopFizzBuzz);
       },
       __self: void 0,
       __source: {
@@ -1114,7 +1113,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 76,
+        lineNumber: 75,
         columnNumber: 11
       }
     }, "test : ", String(stopFizzBuzz))), /*#__PURE__*/React.createElement("div", {
@@ -1122,7 +1121,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 78,
+        lineNumber: 77,
         columnNumber: 9
       }
     }, fizzArray.map(fizz => {
@@ -1134,7 +1133,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 86,
+        lineNumber: 85,
         columnNumber: 7
       }
     }, /*#__PURE__*/React.createElement(_codeRepresentation.default, {
@@ -1143,7 +1142,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 87,
+        lineNumber: 86,
         columnNumber: 9
       }
     })));
@@ -1157,7 +1156,7 @@ try {
     __self: void 0,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 93,
+      lineNumber: 92,
       columnNumber: 17
     }
   }), document.getElementById("root"));

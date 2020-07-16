@@ -70,7 +70,6 @@ const App = () => {
         <button
           onClick={() => {
             setStopFizzBuzz(!stopFizzBuzz);
-            console.log(stopFizzBuzz);
           }}
         >
           <p>test : {String(stopFizzBuzz)}</p>
