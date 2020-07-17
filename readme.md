@@ -14,5 +14,7 @@ CSS Grid is awesome! Great to to finally play with it.
 
 Learned much more about useEffect, a very useful hook!
 
+The way i've made the code representation using raw jsx was a worthwhile exercise but is time consuming and can be done better / faster by automation. Learned about libraries like Prism.js specifically to solve this problem. Plan to use libraries like those on future projects. 
+
 deployed here ->
 https://fizz-buzz-visualizer.vercel.app/
