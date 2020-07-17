@@ -8,7 +8,11 @@ For a given number, the block of code that handles it is highlighted with the sa
 
 ## important!
 
-I have typescript globally installed on my machine and therefore it's not a dependency. if you don't have typescript installed globally, you'll have to install it locally first. I'm not sure if this is considered good practice, if you have a suggestion i'd appreciate hearing it!
+I have typescript globally installed on my machine and therefore it's not a dependency. if you don't have typescript installed globally, you'll have to install it locally first. By running npm i typescript.
+
+https://www.npmjs.com/package/typescript
+ 
+ I'm not sure if this is considered good practice, if you have a suggestion i'd appreciate hearing it!
 
 ## lessons :
 
