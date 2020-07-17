@@ -1022,8 +1022,9 @@ try {
   const App = () => {
     _s();
 
-    let length = 100;
+    let length = 101;
     const initialNumbers = [...Array(length).keys()];
+    initialNumbers.shift();
     const [current, setCurrent] = React.useState(-2);
     const [fizzArray, setNumbers] = React.useState(initialNumbers); // const [step, nextStep] = React.useState<number>(-2);
 
@@ -1052,8 +1053,10 @@ try {
 
     React.useEffect(() => {
       const timer = setTimeout(() => {
-        let next = current + 1;
-        setCurrent(next);
+        if (current < 100) {
+          let next = current + 1;
+          setCurrent(next);
+        }
       }, speed);
       return () => clearTimeout(timer);
       /** this i tried out of experimentation and i was pleased to see it works...
@@ -1070,12 +1073,16 @@ try {
       console.log("requesting reset");
       setActive(false);
       setCurrent(-2);
-      setNumbers([...Array(length).keys()]);
+      let newNumbers = [...Array(length).keys()];
+      newNumbers.shift();
+      setNumbers(newNumbers);
     };
 
     const stepThrough = () => {
-      let next = current + 1;
-      setCurrent(next);
+      if (current <= 99) {
+        let next = current + 1;
+        setCurrent(next);
+      }
     };
 
     let fizzStatus = (0, _fizzHelper.fizzHelper)(current);
@@ -1083,7 +1090,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 84,
+        lineNumber: 91,
         columnNumber: 5
       }
     }, /*#__PURE__*/React.createElement("div", {
@@ -1091,7 +1098,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 85,
+        lineNumber: 92,
         columnNumber: 7
       }
     }, /*#__PURE__*/React.createElement(_buttons.default, {
@@ -1106,7 +1113,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 86,
+        lineNumber: 93,
         columnNumber: 9
       }
     }), /*#__PURE__*/React.createElement("div", {
@@ -1114,7 +1121,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 96,
+        lineNumber: 103,
         columnNumber: 9
       }
     }, fizzArray.map(fizz => {
@@ -1126,7 +1133,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 104,
+        lineNumber: 111,
         columnNumber: 7
       }
     }, /*#__PURE__*/React.createElement(_codeRepresentation.default, {
@@ -1135,7 +1142,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 105,
+        lineNumber: 112,
         columnNumber: 9
       }
     })));
@@ -1149,7 +1156,7 @@ try {
     __self: void 0,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 111,
+      lineNumber: 118,
       columnNumber: 17
     }
   }), document.getElementById("root"));
@@ -29349,19 +29356,13 @@ try {
 
   function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-  // interface fizzBuzzHandler {
-  //   proppedFizzbuzz: (num: number) => void;
-  //   activeprop: boolean;
-  //   clear: () => void;
-  //   next: () => void;
-  // }
   const Buttons = props => {
     return /*#__PURE__*/React.createElement("div", {
       className: "buttons-container",
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 13,
+        lineNumber: 6,
         columnNumber: 5
       }
     }, /*#__PURE__*/React.createElement("button", {
@@ -29373,7 +29374,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 14,
+        lineNumber: 7,
         columnNumber: 7
       }
     }, "fizzbuzz slowly"), /*#__PURE__*/React.createElement("button", {
@@ -29385,7 +29386,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 23,
+        lineNumber: 16,
         columnNumber: 7
       }
     }, "fast"), /*#__PURE__*/React.createElement("button", {
@@ -29397,7 +29398,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 32,
+        lineNumber: 25,
         columnNumber: 7
       }
     }, "step through"), /*#__PURE__*/React.createElement("button", {
@@ -29407,7 +29408,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 41,
+        lineNumber: 34,
         columnNumber: 7
       }
     }, "clear"));
@@ -29988,7 +29989,7 @@ try {
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-  exports.rightBracket = exports.leftBracket = exports.Tab = void 0;
+  exports.Space = exports.rightBracket = exports.leftBracket = exports.Tab = void 0;
 
   var React = _interopRequireWildcard(require("react"));
 
@@ -30011,14 +30012,29 @@ try {
 
   exports.Tab = Tab;
   _c = Tab;
+
+  const Space = () => {
+    return /*#__PURE__*/React.createElement(React.Fragment, {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 8,
+        columnNumber: 10
+      }
+    }, "\xA0");
+  };
+
+  exports.Space = Space;
+  _c2 = Space;
   let leftBracket = "{";
   exports.leftBracket = leftBracket;
   let rightBracket = "}";
   exports.rightBracket = rightBracket;
 
-  var _c;
+  var _c, _c2;
 
   $RefreshReg$(_c, "Tab");
+  $RefreshReg$(_c2, "Space");
   helpers.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
@@ -30185,25 +30201,75 @@ try {
         lineNumber: 25,
         columnNumber: 9
       }
-    }, "\"fizzbuzz\""), " "), /*#__PURE__*/React.createElement("p", {
+    }, "\"fizzbuzz\""), " ", /*#__PURE__*/React.createElement("br", {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 25,
+        columnNumber: 52
+      }
+    }), " ", /*#__PURE__*/React.createElement("br", {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 25,
+        columnNumber: 59
+      }
+    }), " ", /*#__PURE__*/React.createElement(_htmlHelper.Tab, {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 25,
+        columnNumber: 66
+      }
+    }), /*#__PURE__*/React.createElement(_htmlHelper.Space, {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 26,
+        columnNumber: 9
+      }
+    }), " ", /*#__PURE__*/React.createElement(_htmlHelper.Space, {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 26,
+        columnNumber: 19
+      }
+    }), " ", /*#__PURE__*/React.createElement(_htmlHelper.Space, {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 26,
+        columnNumber: 29
+      }
+    }), /*#__PURE__*/React.createElement("span", {
+      className: "control",
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 27,
-        columnNumber: 7
+        columnNumber: 9
       }
-    }), /*#__PURE__*/React.createElement(_htmlHelper.Tab, {
-      __self: void 0,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 28,
-        columnNumber: 7
-      }
-    }), /*#__PURE__*/React.createElement(_htmlHelper.Tab, {
+    }, "continue"), " "), /*#__PURE__*/React.createElement("p", {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 29,
+        columnNumber: 7
+      }
+    }), /*#__PURE__*/React.createElement(_htmlHelper.Tab, {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 30,
+        columnNumber: 7
+      }
+    }), /*#__PURE__*/React.createElement(_htmlHelper.Tab, {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 31,
         columnNumber: 7
       }
     }), /*#__PURE__*/React.createElement("span", {
@@ -30211,7 +30277,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 30,
+        lineNumber: 32,
         columnNumber: 7
       }
     }, _htmlHelper.rightBracket));
@@ -30415,25 +30481,82 @@ try {
         lineNumber: 23,
         columnNumber: 9
       }
-    }, "\"fizz\""), " "), /*#__PURE__*/React.createElement("p", {
+    }, "\"fizz\""), " ", /*#__PURE__*/React.createElement(_htmlHelper.Tab, {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 23,
+        columnNumber: 48
+      }
+    }), " ", /*#__PURE__*/React.createElement("br", {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 23,
+        columnNumber: 60
+      }
+    }), /*#__PURE__*/React.createElement("br", {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 24,
+        columnNumber: 9
+      }
+    }), /*#__PURE__*/React.createElement(_htmlHelper.Tab, {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 25,
-        columnNumber: 7
+        columnNumber: 9
       }
     }), /*#__PURE__*/React.createElement(_htmlHelper.Tab, {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 26,
+        columnNumber: 9
+      }
+    }), /*#__PURE__*/React.createElement(_htmlHelper.Space, {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 27,
+        columnNumber: 9
+      }
+    }), /*#__PURE__*/React.createElement(_htmlHelper.Space, {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 28,
+        columnNumber: 9
+      }
+    }), /*#__PURE__*/React.createElement("span", {
+      className: "control",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 29,
+        columnNumber: 9
+      }
+    }, "continue"), " "), /*#__PURE__*/React.createElement("p", {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 31,
         columnNumber: 7
       }
     }), /*#__PURE__*/React.createElement(_htmlHelper.Tab, {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 27,
+        lineNumber: 32,
+        columnNumber: 7
+      }
+    }), /*#__PURE__*/React.createElement(_htmlHelper.Tab, {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 33,
         columnNumber: 7
       }
     }), /*#__PURE__*/React.createElement("span", {
@@ -30441,7 +30564,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 28,
+        lineNumber: 34,
         columnNumber: 7
       }
     }, _htmlHelper.rightBracket));
@@ -30627,25 +30750,68 @@ try {
         lineNumber: 22,
         columnNumber: 9
       }
-    }, "\"buzz\""), " "), /*#__PURE__*/React.createElement("p", {
+    }, "\"buzz\""), " ", /*#__PURE__*/React.createElement("br", {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 24,
-        columnNumber: 7
+        lineNumber: 22,
+        columnNumber: 48
+      }
+    }), /*#__PURE__*/React.createElement("br", {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 23,
+        columnNumber: 9
       }
     }), /*#__PURE__*/React.createElement(_htmlHelper.Tab, {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
+        lineNumber: 24,
+        columnNumber: 9
+      }
+    }), /*#__PURE__*/React.createElement(_htmlHelper.Space, {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
         lineNumber: 25,
-        columnNumber: 7
+        columnNumber: 9
       }
     }), /*#__PURE__*/React.createElement(_htmlHelper.Tab, {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 26,
+        columnNumber: 9
+      }
+    }), " ", /*#__PURE__*/React.createElement("span", {
+      className: "control",
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 26,
+        columnNumber: 17
+      }
+    }, " continue"), " "), /*#__PURE__*/React.createElement("p", {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 28,
+        columnNumber: 7
+      }
+    }), /*#__PURE__*/React.createElement(_htmlHelper.Tab, {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 29,
+        columnNumber: 7
+      }
+    }), /*#__PURE__*/React.createElement(_htmlHelper.Tab, {
+      __self: void 0,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 30,
         columnNumber: 7
       }
     }), /*#__PURE__*/React.createElement("span", {
@@ -30653,7 +30819,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 27,
+        lineNumber: 31,
         columnNumber: 7
       }
     }, _htmlHelper.rightBracket));

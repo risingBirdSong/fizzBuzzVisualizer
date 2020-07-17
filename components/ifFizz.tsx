@@ -1,6 +1,6 @@
 import * as React from "react";
 import FizzStatus from "../fizzEnum";
-import { Tab, leftBracket, rightBracket } from "./htmlHelper";
+import { Tab, leftBracket, rightBracket, Space } from "./htmlHelper";
 
 const IfFizz = (props: { status: FizzStatus }) => {
   return (
@@ -20,7 +20,13 @@ const IfFizz = (props: { status: FizzStatus }) => {
       <span>
         {" "}
         <Tab></Tab> <span className="control">print</span>{" "}
-        <span className="string">"fizz"</span>{" "}
+        <span className="string">"fizz"</span> <Tab></Tab> <br />
+        <br />
+        <Tab />
+        <Tab />
+        <Space />
+        <Space />
+        <span className="control">continue</span>{" "}
       </span>
       <p></p>
       <Tab />

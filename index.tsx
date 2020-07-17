@@ -23,8 +23,9 @@ export interface fizzBuzzHandler {
 // const ReactDOM = require("react-dom");
 
 const App = () => {
-  let length = 100;
+  let length = 101;
   const initialNumbers = [...Array(length).keys()];
+  initialNumbers.shift();
   const [current, setCurrent] = React.useState(-2);
   const [fizzArray, setNumbers] = React.useState<number[]>(initialNumbers);
   // const [step, nextStep] = React.useState<number>(-2);
@@ -54,8 +55,10 @@ const App = () => {
 
   React.useEffect(() => {
     const timer = setTimeout(() => {
-      let next = current + 1;
-      setCurrent(next);
+      if (current < 100) {
+        let next = current + 1;
+        setCurrent(next);
+      }
     }, speed);
     return () => clearTimeout(timer);
     /** this i tried out of experimentation and i was pleased to see it works...
@@ -72,12 +75,16 @@ const App = () => {
     console.log("requesting reset");
     setActive(false);
     setCurrent(-2);
-    setNumbers([...Array(length).keys()]);
+    let newNumbers = [...Array(length).keys()];
+    newNumbers.shift();
+    setNumbers(newNumbers);
   };
 
   const stepThrough = () => {
-    let next = current + 1;
-    setCurrent(next);
+    if (current <= 99) {
+      let next = current + 1;
+      setCurrent(next);
+    }
   };
   let fizzStatus = fizzHelper(current);
   return (
