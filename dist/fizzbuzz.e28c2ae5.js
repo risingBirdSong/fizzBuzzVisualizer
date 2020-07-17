@@ -1032,6 +1032,9 @@ try {
     const [speed, setSpeed] = React.useState(0); //https://github.com/parcel-bundler/parcel/issues/954
     //apparently parcel is calling babel for using async await but it's not needed because typescript provides its own
     // the fix was adding to package.json the config for browserslist -> last 1 Chrome version
+    // this was the previous attempt that caused confusion and bugs. it doesn't work because on every renrender it gets redefined with it's own closure of variables rather that the expected single variables.
+    // here is the great example of this problem demonstrated by Retsam-"Don't use React.FC"-19
+    // https://codesandbox.io/s/falling-darkness-mmtmu
     // function fizzbuzz(delayAmount: number) {
     //   let delaying;
     //   if (stopFizzBuzz === true) {
@@ -1090,7 +1093,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 91,
+        lineNumber: 97,
         columnNumber: 5
       }
     }, /*#__PURE__*/React.createElement("div", {
@@ -1098,7 +1101,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 92,
+        lineNumber: 98,
         columnNumber: 7
       }
     }, /*#__PURE__*/React.createElement(_buttons.default, {
@@ -1113,7 +1116,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 93,
+        lineNumber: 99,
         columnNumber: 9
       }
     }), /*#__PURE__*/React.createElement("div", {
@@ -1121,7 +1124,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 103,
+        lineNumber: 109,
         columnNumber: 9
       }
     }, fizzArray.map(fizz => {
@@ -1133,7 +1136,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 111,
+        lineNumber: 117,
         columnNumber: 7
       }
     }, /*#__PURE__*/React.createElement(_codeRepresentation.default, {
@@ -1142,7 +1145,7 @@ try {
       __self: void 0,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 112,
+        lineNumber: 118,
         columnNumber: 9
       }
     })));
@@ -1156,7 +1159,7 @@ try {
     __self: void 0,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 118,
+      lineNumber: 124,
       columnNumber: 17
     }
   }), document.getElementById("root"));

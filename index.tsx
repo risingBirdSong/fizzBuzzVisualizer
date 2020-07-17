@@ -34,6 +34,12 @@ const App = () => {
   //https://github.com/parcel-bundler/parcel/issues/954
   //apparently parcel is calling babel for using async await but it's not needed because typescript provides its own
   // the fix was adding to package.json the config for browserslist -> last 1 Chrome version
+
+  // this was the previous attempt that caused confusion and bugs. it doesn't work because on every renrender it gets redefined with it's own closure of variables rather that the expected single variables.
+
+  // here is the great example of this problem demonstrated by Retsam-"Don't use React.FC"-19
+  // https://codesandbox.io/s/falling-darkness-mmtmu
+
   // function fizzbuzz(delayAmount: number) {
   //   let delaying;
   //   if (stopFizzBuzz === true) {
