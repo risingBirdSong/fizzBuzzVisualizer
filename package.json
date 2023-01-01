@@ -7,7 +7,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/react": "^16.9.38",
-    "parcel": "^2.0.0-nightly.300"
+    "parcel": "^2.8.2"
   },
   "browserslist": [
     "last 1 Chrome version"
